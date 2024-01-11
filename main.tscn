@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://22i1qxa61da4"]
+[gd_scene load_steps=2 format=3 uid="uid://22i1qxa61da4"]
+
+[ext_resource type="Texture2D" uid="uid://dwlk5t0tbnuhb" path="res://assets/resources/Color Palette 140.png" id="1_blicy"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="ColorPalette140" type="Sprite2D" parent="."]
+position = Vector2(-927, -52.9999)
+scale = Vector2(2.20444, 1)
+texture = ExtResource("1_blicy")

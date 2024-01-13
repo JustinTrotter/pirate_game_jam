@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://crnssl2rqrk8a"]
+
+[ext_resource type="PackedScene" uid="uid://bs3xg3ibhkbqj" path="res://maps/test-map/test-api.ldtk" id="1_xg8dw"]
+[ext_resource type="Script" path="res://addons/amano-ldtk-importer/examples/post-import-scripts/post-import-entities-create-nodes.gd" id="2_ltm8q"]
+
+[node name="test-api" instance=ExtResource("1_xg8dw")]
+script = ExtResource("2_ltm8q")

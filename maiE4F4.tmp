@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://07jopxvkstce"]
+
+[ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
+
+[node name="Main" type="Node2D"]
+
+[node name="map_test" parent="." instance=ExtResource("1_idevj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(230, 130)
+zoom = Vector2(2.5, 2.5)

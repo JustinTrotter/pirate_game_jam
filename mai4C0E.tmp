@@ -94,7 +94,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_nda2s")
 hframes = 12
 vframes = 11
-frame = 107
+frame = 103
 
 [node name="chord_2" type="Sprite2D" parent="HUD/Panel"]
 unique_name_in_owner = true
@@ -114,7 +114,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_nda2s")
 hframes = 12
 vframes = 11
-frame = 107
+frame = 103
 
 [node name="chord_4" type="Sprite2D" parent="HUD/Panel"]
 unique_name_in_owner = true

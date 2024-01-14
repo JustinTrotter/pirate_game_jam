@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://n4wfeag5n4ns"]
+
+[ext_resource type="Script" path="res://globals/globals.gd" id="1_gpc80"]
+[ext_resource type="Script" path="res://globals/tempo.gd" id="2_afvd5"]
+
+[node name="Globals" type="Node2D"]
+script = ExtResource("1_gpc80")
+
+[node name="Tempo" type="Node2D" parent="."]
+script = ExtResource("2_afvd5")
+tempo_rate = 0.25

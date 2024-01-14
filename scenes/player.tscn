@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6ob8ceo45ram"]
+[gd_scene load_steps=6 format=3 uid="uid://6ob8ceo45ram"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_08bn7"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_s0sv1"]
 [ext_resource type="Script" path="res://scenes/movement.gd" id="3_mvbr7"]
-[ext_resource type="Script" path="res://scenes/BulletComponent.gd" id="4_3buf8"]
-[ext_resource type="PackedScene" uid="uid://bqfn0o2vvcmvh" path="res://scenes/bullet.tscn" id="5_n3sx4"]
+[ext_resource type="PackedScene" uid="uid://1k6kg5fn1k81" path="res://components/bullet_component.tscn" id="4_ik8fk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -12,16 +11,16 @@ radius = 8.0
 [node name="Player" type="Node2D"]
 script = ExtResource("1_08bn7")
 
-[node name="MovementComponent" type="CharacterBody2D" parent="."]
+[node name="KeyboardMovementComponent" type="CharacterBody2D" parent="."]
 motion_mode = 1
 wall_min_slide_angle = 0.760964
 script = ExtResource("3_mvbr7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyboardMovementComponent"]
 position = Vector2(0, 0.5)
 shape = SubResource("CircleShape2D_c5rpu")
 
-[node name="Sprite2D" type="Sprite2D" parent="MovementComponent"]
+[node name="Sprite2D" type="Sprite2D" parent="KeyboardMovementComponent"]
 texture_filter = 1
 texture = ExtResource("1_s0sv1")
 hframes = 12
@@ -29,6 +28,4 @@ vframes = 11
 frame = 85
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="BulletComponent" type="Node2D" parent="."]
-script = ExtResource("4_3buf8")
-bullet = ExtResource("5_n3sx4")
+[node name="BulletComponent" parent="." instance=ExtResource("4_ik8fk")]

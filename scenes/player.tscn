@@ -21,6 +21,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("CircleShape2D_c5rpu")
 
 [node name="Sprite2D" type="Sprite2D" parent="KeyboardMovementComponent"]
+z_index = 100
 texture_filter = 1
 texture = ExtResource("1_s0sv1")
 hframes = 12

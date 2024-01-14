@@ -6,4 +6,5 @@ func start(pos):
 	position = pos
 
 func _process(delta):
-	position.y += speed * delta
+	if !Globals.game_paused:
+		position.y += speed * delta

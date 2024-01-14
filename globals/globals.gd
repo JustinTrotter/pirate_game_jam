@@ -9,4 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("pause_game"):
+		Globals.game_paused = !Globals.game_paused
+
+@export var player_speed: float = 200.0
+@export var player_accel: float = 50.0
+@export var fire_rate: float = 1.0
+
+var game_paused: bool = false

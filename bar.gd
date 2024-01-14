@@ -18,10 +18,11 @@ func _process(delta):
 	pass
 
 func _move_bar(target):
-	Globals.tempo_tick.emit()
+	if !Globals.game_paused:
+		Globals.tempo_tick.emit()
 	note_number += 1
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", target.global_position, 0.5)
+	tween.tween_property(self, "global_position", target.global_position, Globals.fire_rate)
 	tween.tween_callback(_on_tween_complete)
 	
 func _on_tween_complete():

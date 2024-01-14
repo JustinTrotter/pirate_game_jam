@@ -7,14 +7,14 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="map_test" parent="." instance=ExtResource("1_idevj")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(230, 130)
-zoom = Vector2(2.5, 2.5)
-position_smoothing_enabled = true
-script = ExtResource("2_gp5xq")
-
 [node name="HUD" parent="." instance=ExtResource("2_bwtjs")]
 
 [node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(55, 89)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+script = ExtResource("2_gp5xq")
+
+[node name="map_test" parent="." instance=ExtResource("1_idevj")]

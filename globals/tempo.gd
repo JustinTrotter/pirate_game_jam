@@ -17,4 +17,5 @@ func _process(delta):
 	pass
 
 func _tempo_Timeout():
-	Globals.tempo_tick.emit()
+	pass
+	#Globals.tempo_tick.emit()

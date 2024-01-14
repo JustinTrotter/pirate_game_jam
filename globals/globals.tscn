@@ -8,4 +8,4 @@ script = ExtResource("1_gpc80")
 
 [node name="Tempo" type="Node2D" parent="."]
 script = ExtResource("2_afvd5")
-tempo_rate = 0.25
+tempo_rate = 1.0

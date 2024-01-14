@@ -1,7 +1,9 @@
 extends Node
 
-@export var bullet: PackedScene
+var bullet_a: PackedScene = preload("res://scenes/bullet_A.tscn")
+var bullet_b: PackedScene = preload("res://scenes/bullet_B.tscn")
 
+var toggle = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.connect("tempo_tick", shoot)
@@ -11,7 +13,12 @@ func _process(delta):
 	pass
 
 func shoot() -> void:
-	#if Input.is_action_just_pressed("shoot"):
-	var bullet_instance = bullet.instantiate()
+	#if Input.is_action_just_pressed("shoot"):\
+	var bullet_instance
+	if (toggle):
+		bullet_instance = bullet_a.instantiate()
+	else:
+		bullet_instance = bullet_b.instantiate()
 	self.add_child(bullet_instance)
 	bullet_instance.transform = owner.get_child(0).transform
+	toggle = !toggle

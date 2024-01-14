@@ -14,6 +14,9 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(55, 89)
 zoom = Vector2(4, 4)
+limit_left = -55
+limit_bottom = 214
+limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_gp5xq")
 

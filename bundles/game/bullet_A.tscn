@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1cm3qaakvpro"]
+
+[ext_resource type="PackedScene" uid="uid://bqfn0o2vvcmvh" path="res://bundles/game/bullet_base.tscn" id="1_edwf6"]
+[ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_ljcnx"]
+
+[node name="bullet_base" instance=ExtResource("1_edwf6")]
+
+[node name="graphic" type="Sprite2D" parent="." index="0"]
+z_index = 90
+texture_filter = 1
+texture = ExtResource("2_ljcnx")
+hframes = 12
+vframes = 11
+frame = 103

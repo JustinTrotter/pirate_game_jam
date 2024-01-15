@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fikkdd2w3sij"]
 
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_4xc0u"]
-[ext_resource type="Script" path="res://bar.gd" id="2_ahlq3"]
+[ext_resource type="Script" path="res://bundles/ui/bar.gd" id="2_ahlq3"]
 
 [node name="HUD" type="CanvasLayer"]
 

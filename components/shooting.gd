@@ -1,7 +1,7 @@
 extends Node
 
-var bullet_a: PackedScene = preload("res://scenes/bullet_A.tscn")
-var bullet_b: PackedScene = preload("res://scenes/bullet_B.tscn")
+var bullet_a: PackedScene = preload("res://bundles/game/bullet_A.tscn")
+var bullet_b: PackedScene = preload("res://bundles/game/bullet_B.tscn")
 
 var toggle = false
 # Called when the node enters the scene tree for the first time.

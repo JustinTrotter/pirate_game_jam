@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-var entity_ref_test := preload("res://scenes/player.tscn")
+var entity_ref_test := preload("res://bundles/game/player.tscn")
 
 func post_import(entity_layer: Node2D) -> Node2D:
 	var data :Array = entity_layer.get_meta("LDtk_entity_instances")

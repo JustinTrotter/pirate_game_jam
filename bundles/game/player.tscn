@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://6ob8ceo45ram"]
+
+[ext_resource type="Script" path="res://bundles/game/player.gd" id="1_v3y6g"]
+[ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_raixs"]
+[ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_h3vux"]
+[ext_resource type="PackedScene" uid="uid://1k6kg5fn1k81" path="res://components/shooting.tscn" id="4_tub0f"]
+[ext_resource type="Script" path="res://bundles/game/camera_target.gd" id="5_bkyss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_v3y6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_c5rpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+texture_filter = 1
+texture = ExtResource("2_raixs")
+hframes = 12
+vframes = 11
+frame = 85
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Movement" parent="." instance=ExtResource("3_h3vux")]
+
+[node name="Bullet" parent="." instance=ExtResource("4_tub0f")]
+
+[node name="CameraTarget" type="Node2D" parent="." groups=["CameraTarget"]]
+script = ExtResource("5_bkyss")
+magnitude = 100.0

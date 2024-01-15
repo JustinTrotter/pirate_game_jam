@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyjnu37ysvv4v"]
 
-[ext_resource type="Script" path="res://scenes/debug_panel.gd" id="1_pmjg7"]
+[ext_resource type="Script" path="res://bundles/ui/debug_panel.gd" id="1_pmjg7"]
 [ext_resource type="Script" path="res://scenes/fire_rate_ui_line_edit.gd" id="1_sqpxf"]
 [ext_resource type="Script" path="res://scenes/player_speed_line_edit.gd" id="2_khj1q"]
 [ext_resource type="Script" path="res://scenes/player_accel_line_edit.gd" id="3_sxb46"]

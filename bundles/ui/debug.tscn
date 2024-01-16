@@ -102,6 +102,49 @@ alignment = 2
 max_length = 6
 script = ExtResource("1_sqpxf")
 
+[node name="MarginContainer4" type="MarginContainer" parent="debug_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="debug_panel/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="debug_panel/VBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Camera Smooth Move"
+
+[node name="camera_smooth_move_checkbox" type="CheckBox" parent="debug_panel/VBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+alignment = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="debug_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="debug_panel/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="debug_panel/VBoxContainer/MarginContainer5/HBoxContainer"]
+layout_mode = 2
+text = "Camera Move Speed"
+
+[node name="camera_move_speed_ui_line_edit" type="LineEdit" parent="debug_panel/VBoxContainer/MarginContainer5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+alignment = 2
+max_length = 6
+
 [connection signal="text_changed" from="debug_panel/VBoxContainer/MarginContainer/HBoxContainer/player_speed_line_edit" to="debug_panel/VBoxContainer/MarginContainer/HBoxContainer/player_speed_line_edit" method="_on_text_changed"]
 [connection signal="text_changed" from="debug_panel/VBoxContainer/MarginContainer3/HBoxContainer/player_accel_line_edit" to="debug_panel/VBoxContainer/MarginContainer3/HBoxContainer/player_accel_line_edit" method="_on_text_changed"]
 [connection signal="text_changed" from="debug_panel/VBoxContainer/MarginContainer2/HBoxContainer/fire_rate_ui_line_edit" to="debug_panel/VBoxContainer/MarginContainer2/HBoxContainer/fire_rate_ui_line_edit" method="_on_text_changed"]
+[connection signal="toggled" from="debug_panel/VBoxContainer/MarginContainer4/HBoxContainer/camera_smooth_move_checkbox" to="debug_panel" method="_on_camera_smooth_move_checkbox_toggled"]
+[connection signal="text_changed" from="debug_panel/VBoxContainer/MarginContainer5/HBoxContainer/camera_move_speed_ui_line_edit" to="debug_panel" method="_on_camera_move_speed_ui_line_edit_text_changed"]

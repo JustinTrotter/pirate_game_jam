@@ -16,6 +16,6 @@ func _process(delta):
 	#if direction != Vector2.ZERO:
 	#	position = parent.global_position + direction * magnitude
 	position = Vector2(
-		(Globals.current_screen.x * Globals.VIEWPORT_WIDTH + Globals.VIEWPORT_WIDTH / 2.0) - Globals.screen_offset_width,
-		(Globals.current_screen.y * Globals.VIEWPORT_HEIGHT + Globals.VIEWPORT_HEIGHT / 2.0) - Globals.screen_offset_height
+		Globals.current_screen.x * Globals.VIEWPORT_WIDTH + Globals.VIEWPORT_WIDTH / 2.0,
+		Globals.current_screen.y * Globals.VIEWPORT_HEIGHT + Globals.VIEWPORT_HEIGHT / 2.0
 	)

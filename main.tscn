@@ -11,14 +11,8 @@
 
 [node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(55, 89)
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 zoom = Vector2(2, 2)
-limit_left = -55
-limit_bottom = 214
-limit_smoothed = true
-position_smoothing_enabled = true
 script = ExtResource("2_gp5xq")
 
 [node name="map_test" parent="." instance=ExtResource("1_idevj")]
-position = Vector2(-55, -90)

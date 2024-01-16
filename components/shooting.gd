@@ -3,6 +3,8 @@ extends Node
 var bullet_a: PackedScene = preload("res://bundles/game/bullet_A.tscn")
 var bullet_b: PackedScene = preload("res://bundles/game/bullet_B.tscn")
 
+@onready var parent = self.get_parent()
+
 var toggle = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,6 @@ func shoot() -> void:
 		bullet_instance = bullet_a.instantiate()
 	else:
 		bullet_instance = bullet_b.instantiate()
-	self.add_child(bullet_instance)
-	bullet_instance.transform = owner.get_child(0).transform
+	get_tree().root.add_child(bullet_instance)
+	bullet_instance.transform = parent.transform
 	toggle = !toggle

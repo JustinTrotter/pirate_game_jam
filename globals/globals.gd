@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("pause_game"):
-		Globals.game_paused = !Globals.game_pausedd
+		Globals.game_paused = !Globals.game_paused
 	if player:
 		_update_current_screen()
 
@@ -25,10 +25,7 @@ var game_paused: bool = false
 var VIEWPORT_WIDTH = 480.0
 var VIEWPORT_HEIGHT = 304.0
 var current_screen = Vector2.ZERO
-var screen_offset_width = 55.0;
-var screen_offset_height = 90.0;
 
 func _update_current_screen():
-	current_screen.x =  floor((player.global_position.x + screen_offset_width) / VIEWPORT_WIDTH)
-	current_screen.y = floor((player.global_position.y + screen_offset_height) / VIEWPORT_HEIGHT)
-	print(current_screen)
+	current_screen.x =  floor(player.global_position.x / VIEWPORT_WIDTH)
+	current_screen.y = floor(player.global_position.y / VIEWPORT_HEIGHT)

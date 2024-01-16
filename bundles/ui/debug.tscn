@@ -117,6 +117,7 @@ layout_mode = 2
 text = "Camera Smooth Move"
 
 [node name="camera_smooth_move_checkbox" type="CheckBox" parent="debug_panel/VBoxContainer/MarginContainer4/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -137,6 +138,7 @@ layout_mode = 2
 text = "Camera Move Speed"
 
 [node name="camera_move_speed_ui_line_edit" type="LineEdit" parent="debug_panel/VBoxContainer/MarginContainer5/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4

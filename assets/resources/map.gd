@@ -8,6 +8,7 @@ extends Node2D
 @onready var levels_added = 0
 @onready var level_cells = []
 @onready var level_queue = []
+@onready var num_level_nodes = 0
 
 func _ready():
 	initialize_level_nodes()
@@ -26,6 +27,7 @@ func increase_level_number():
 	max_number_of_levels = Globals.rng.randi_range(1, 2) + 5 + current_level_number * 2.6
 	
 func initialize_level_nodes():
+	num_level_nodes = level_nodes.size()
 	for level in level_nodes:
 		level.visible = false
 	#always initialize level zero
@@ -84,7 +86,7 @@ func neighbor_is_good(neighbor: int, levels_added: int) -> bool:
 	return true
 	
 func create_level_at_location(x: int, y: int):
-	var new_level = level_nodes[1].duplicate()
+	var new_level = level_nodes[Globals.rng.randi_range(1, num_level_nodes - 1)].duplicate()
 	new_level.position = Vector2(x * Globals.VIEWPORT_WIDTH, y * Globals.VIEWPORT_HEIGHT)
 	new_level.visible = true
 	add_child(new_level)

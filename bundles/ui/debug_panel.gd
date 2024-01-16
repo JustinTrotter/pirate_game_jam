@@ -5,6 +5,7 @@ extends Panel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.visible = false
+	%camera_move_speed_ui_line_edit.text = str(camera.position_smoothing_speed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

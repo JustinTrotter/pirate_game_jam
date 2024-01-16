@@ -3,11 +3,12 @@ extends Node
 signal tempo_tick
 
 @onready var player = get_tree().get_nodes_in_group("Player")[0]  
+@onready var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	#rng.seed = hash("Pirate_Game_Jam_Seed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,6 +26,9 @@ var game_paused: bool = false
 var VIEWPORT_WIDTH = 480.0
 var VIEWPORT_HEIGHT = 304.0
 var current_screen = Vector2.ZERO
+
+var map_grid_positions: PackedVector2Array
+var map_grid_levels: Array
 
 func _update_current_screen():
 	current_screen.x =  floor(player.global_position.x / VIEWPORT_WIDTH)

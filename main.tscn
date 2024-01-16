@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://07jopxvkstce"]
+[gd_scene load_steps=6 format=3 uid="uid://07jopxvkstce"]
 
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
 [ext_resource type="PackedScene" uid="uid://fikkdd2w3sij" path="res://scenes/hud.tscn" id="2_bwtjs"]
 [ext_resource type="Script" path="res://camera.gd" id="2_gp5xq"]
 [ext_resource type="PackedScene" uid="uid://cyjnu37ysvv4v" path="res://bundles/ui/debug.tscn" id="3_gg2uk"]
+[ext_resource type="Script" path="res://assets/resources/map.gd" id="5_fyqe0"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,7 +13,8 @@
 [node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-zoom = Vector2(2, 2)
+position = Vector2(240, 152)
 script = ExtResource("2_gp5xq")
 
-[node name="map_test" parent="." instance=ExtResource("1_idevj")]
+[node name="Map" parent="." instance=ExtResource("1_idevj")]
+script = ExtResource("5_fyqe0")

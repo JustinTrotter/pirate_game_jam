@@ -28,6 +28,7 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="Movement" parent="." instance=ExtResource("3_h3vux")]
 
 [node name="Bullet" parent="." instance=ExtResource("4_tub0f")]
+visible = false
 
 [node name="CameraTarget" type="Node2D" parent="." groups=["CameraTarget"]]
 script = ExtResource("5_bkyss")

@@ -9,6 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("2_bwtjs")]
+visible = false
 
 [node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
 

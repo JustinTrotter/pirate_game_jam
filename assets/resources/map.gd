@@ -11,11 +11,12 @@ extends Node2D
 @onready var num_level_nodes = 0
 
 func _ready():
-	initialize_level_nodes()
-	initialize_level_cells()
-	create_map_grid_positions(9, 8)
-	place_starting_level_into_queue(35)
-	loop_over_level_queue()
+	#initialize_level_nodes()
+	#initialize_level_cells()
+	#create_map_grid_positions(9, 8)
+	#place_starting_level_into_queue(35)
+	#loop_over_level_queue()
+	pass
 	
 func initialize_level_cells():
 	level_cells = []

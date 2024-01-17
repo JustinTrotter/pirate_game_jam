@@ -49,7 +49,7 @@ func cache_wall_level_nodes():
 			
 func cell_index_is_out_of_bounds(index: int) -> bool:
 	if index < 0: return true
-	if index >= grid_width * grid_height - 1 : return true
+	if index >= (grid_width * grid_height) - 1 : return true
 	return false
 	
 func create_level_container():
@@ -132,10 +132,17 @@ func loop_over_level_queue():
 		if neighbor_is_good(level - 10, levels_added): levels_added += 1 #south
 		if neighbor_is_good(level - 1, levels_added): levels_added += 1 #west
 		Utils.finish_queue_front(level_queue)
+		
+func cell_index_ends_with_zero(index: int) -> bool:
+	if index == 0 || str(index).length() == 2 && str(index)[1] == "0":
+		return true
+	return false
 			
 func neighbor_is_good(neighbor: int, levels_added: int) -> bool:
 	# if neighbor is out of bounds of map
 	if cell_index_is_out_of_bounds(neighbor): return false
+	# if neighbor is on the far left size of the map (prevent wrapping)
+	if cell_index_ends_with_zero(neighbor): return false
 	# if we already have enough rooms
 	if levels_added >= floor(max_number_of_levels): return false
 	# if neighbor is already occupied

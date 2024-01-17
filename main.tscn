@@ -15,6 +15,7 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(240, 152)
+zoom = Vector2(0.125, 0.125)
 script = ExtResource("2_gp5xq")
 
 [node name="Map" parent="." instance=ExtResource("1_idevj")]

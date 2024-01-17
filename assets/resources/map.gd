@@ -5,7 +5,7 @@ extends Node2D
 @onready var grid_height = 8
 @onready var current_level_number = 4
 @onready var max_number_of_levels = Globals.rng.randi_range(1, 2) + 5 + current_level_number * 2.6
-@onready var min_number_of_levels = max_number_of_levels - 5
+@onready var min_number_of_levels = max_number_of_levels - 2
 @onready var levels_added = 0
 @onready var level_cells = []
 @onready var level_queue = []
@@ -16,20 +16,13 @@ extends Node2D
 func _ready():
 	initialize_level_nodes()
 	cache_wall_level_nodes()
-	create_map_grid_positions(9, 8) #TODO check if I still use this
-	
 	create_level_container()
-	print(levels_added)
-	print(min_number_of_levels)
 	while levels_added < min_number_of_levels:
 		initialize_level_cells()
 		place_starting_level_into_queue(35)
 		loop_over_level_queue()
 		if levels_added < min_number_of_levels:
 			reset_level_container()
-		print("while")
-		print(levels_added)
-	
 	create_level_floors()
 	create_level_walls()
 	
@@ -67,8 +60,7 @@ func create_level_floors():
 			if count != 35: #for now don't do start level
 				var level_coords = get_level_coords_from_cell(count)
 				create_level_at_location("Level_1", level_coords.x, level_coords.y)
-		count += 1
-		
+		count += 1	
 
 func create_level_walls():
 	var count = 0
@@ -77,23 +69,17 @@ func create_level_walls():
 			var wall_level_suffix = ""
 			#north neighbor
 			if cell_index_is_out_of_bounds(count - 10) || !level_cells[count - 10]:
-				wall_level_suffix = wall_level_suffix + "n"
-				#wall_level_suffix.replace('n', '')
-				
+				wall_level_suffix = wall_level_suffix + "n"	
 			#east neighbor
 			if cell_index_is_out_of_bounds(count + 1) || !level_cells[count + 1]:
 				wall_level_suffix = wall_level_suffix + "e"
-				#wall_level_suffix.replace("e", "")
 			#south neighbor
 			if cell_index_is_out_of_bounds(count + 10) || !level_cells[count + 10]:
 				wall_level_suffix = wall_level_suffix + "s"
-				#wall_level_suffix.replace("s", "")
 			#west neighbor
 			if cell_index_is_out_of_bounds(count - 1) || !level_cells[count - 1]:
 				wall_level_suffix = wall_level_suffix + "w"
-				#wall_level_suffix.replace("w", "")
-			
-				#print(wall_level_suffix)
+				
 			var level_coords = get_level_coords_from_cell(count)
 			create_level_at_location("Walls_" + wall_level_suffix, level_coords.x, level_coords.y)
 		count += 1
@@ -108,14 +94,6 @@ func initialize_level_nodes():
 		level.visible = false
 	#always initialize level zero
 	level_nodes[0].visible = true
-	
-func create_map_grid_positions(grid_width: int, grid_height: int):
-	for i in range(grid_width):
-		for j in range(grid_height):
-			Globals.map_grid_positions.append(Vector2(i * Globals.VIEWPORT_WIDTH, j * Globals.VIEWPORT_HEIGHT))
-	
-func get_bottom_of_map_grid() -> PackedVector2Array:
-	return Globals.map_grid_positions.slice(grid_width * grid_height - grid_width)
 	
 func place_starting_level_into_queue(cell: int):
 	level_cells[cell] = true

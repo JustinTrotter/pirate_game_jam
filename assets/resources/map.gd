@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var level_nodes = get_children()
-@onready var grid_width = 9
-@onready var grid_height = 8
+@onready var grid_width = Globals.map_grid_width
+@onready var grid_height = Globals.map_grid_height
 @onready var current_level_number = 4
 @onready var max_number_of_levels = Globals.rng.randi_range(1, 2) + 5 + current_level_number * 2.6
 @onready var min_number_of_levels = max_number_of_levels - 2
@@ -13,12 +13,15 @@ extends Node2D
 @onready var wall_level_nodes = []
 @onready var level_container_node: Node2D
 
+@onready var level_lookup_map = []
+
 func _ready():
 	initialize_level_nodes()
 	cache_wall_level_nodes()
 	create_level_container()
 	while levels_added < min_number_of_levels:
 		initialize_level_cells()
+		initialize_level_lookup_map()
 		place_starting_level_into_queue(35)
 		loop_over_level_queue()
 		if levels_added < min_number_of_levels:
@@ -31,6 +34,11 @@ func initialize_level_cells():
 	level_cells.resize(grid_width * grid_height)
 	level_cells.fill(false)
 	levels_added = 0
+	
+func initialize_level_lookup_map():
+	level_lookup_map = []
+	level_lookup_map.resize(grid_width * grid_height)
+	level_lookup_map.fill(null)
 	
 func cache_wall_level_nodes():
 	for node in level_nodes:
@@ -59,7 +67,7 @@ func create_level_floors():
 		if level:
 			if count != 35: #for now don't do start level
 				var level_coords = get_level_coords_from_cell(count)
-				create_level_at_location("Level_1", level_coords.x, level_coords.y)
+				create_level_at_location("Level_1", level_coords.x, level_coords.y, count)
 		count += 1	
 
 func create_level_walls():
@@ -81,7 +89,7 @@ func create_level_walls():
 				wall_level_suffix = wall_level_suffix + "w"
 				
 			var level_coords = get_level_coords_from_cell(count)
-			create_level_at_location("Walls_" + wall_level_suffix, level_coords.x, level_coords.y)
+			create_level_at_location("Walls_" + wall_level_suffix, level_coords.x, level_coords.y, count)
 		count += 1
 	
 func increase_level_number():
@@ -97,6 +105,8 @@ func initialize_level_nodes():
 	
 func place_starting_level_into_queue(cell: int):
 	level_cells[cell] = true
+	level_lookup_map[cell] = level_nodes[0]
+	print("level_nodes[0]: ", level_nodes[0])
 	Utils.add_to_queue(level_queue, cell)
 	var level_coords = get_level_coords_from_cell(35)
 	level_nodes[0].position = Vector2(level_coords.x * Globals.VIEWPORT_WIDTH, level_coords.y * Globals.VIEWPORT_HEIGHT)
@@ -141,11 +151,9 @@ func neighbor_is_good(neighbor: int, levels_added: int) -> bool:
 		return false
 	level_cells[neighbor] = true
 	Utils.add_to_queue(level_queue, neighbor)
-	#var level_coords = get_level_coords_from_cell(neighbor)
-	#create_level_at_location("Level_1", level_coords.x, level_coords.y)
 	return true
 	
-func create_level_at_location(level_name: String, x: int, y: int):
+func create_level_at_location(level_name: String, x: int, y: int, cell: int):
 	var new_level
 	var count = 0
 	for level in level_nodes:
@@ -156,6 +164,8 @@ func create_level_at_location(level_name: String, x: int, y: int):
 		new_level.position = Vector2(x * Globals.VIEWPORT_WIDTH, y * Globals.VIEWPORT_HEIGHT)
 		new_level.visible = true
 		add_child(new_level)
+		if !level_name.contains("Walls_"):
+			level_lookup_map[cell] = new_level
 	else:
 		print(level_name)
 
@@ -163,4 +173,4 @@ func get_level_coords_from_cell(cell: int) -> Vector2:
 	if str(cell).length() == 2:
 		return Vector2(int(str(cell)[1]), int(str(cell)[0]))
 	return Vector2(int(str(cell)[0]), 0)
-	
+

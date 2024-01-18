@@ -2,6 +2,7 @@
 extends Node
 
 var entity_ref_test := preload("res://bundles/game/player.tscn")
+var enemy_ref := preload("res://bundles/game/enemy.tscn")
 
 func post_import(entity_layer: Node2D) -> Node2D:
 	var data :Array = entity_layer.get_meta("LDtk_entity_instances")
@@ -42,6 +43,8 @@ func post_import(entity_layer: Node2D) -> Node2D:
 			_:
 				if entity_data.identifier == "Player":
 					node = entity_ref_test.instantiate()
+				elif entity_data.identifier == "Enemy_1":
+					node = enemy_ref.instantiate()
 				else:
 					node = Node2D.new()
 
@@ -69,16 +72,17 @@ func post_import(entity_layer: Node2D) -> Node2D:
 	# different levels/layers a world-post-script would need to be used.
 	for child in children:
 		var entity_meta :Dictionary = child.get_meta("entity_data")
+		print(entity_meta)
 		if entity_meta.identifier == "Player":
-			var entity_ref_node :Player = child
+			var entity_ref_node = child
 			var target_field = entity_meta.fields.get("target", null)
-			if target_field != null:
-				var target_node = children.filter(
-					func(item):
-						var item_meta = item.get_meta("entity_data")
-						return item_meta.iid == target_field.entityIid
-				)[0]
-				var path := entity_ref_node.get_path_to(target_node)
-				entity_ref_node.target_path = path
+			#if target_field != null:
+				#var target_node = children.filter(
+					#func(item):
+						#var item_meta = item.get_meta("entity_data")
+						#return item_meta.iid == target_field.entityIid
+				#)[0]
+				#var path := entity_ref_node.get_path_to(target_node)
+				#entity_ref_node.target_path = path
 
 	return entity_layer

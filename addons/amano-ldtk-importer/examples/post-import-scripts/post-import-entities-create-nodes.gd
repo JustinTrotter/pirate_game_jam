@@ -3,6 +3,7 @@ extends Node
 
 var entity_ref_test := preload("res://bundles/game/player.tscn")
 var enemy_ref := preload("res://bundles/game/enemy.tscn")
+var enemy_ref_2 := preload("res://bundles/game/enemy_2.tscn")
 
 func post_import(entity_layer: Node2D) -> Node2D:
 	var data :Array = entity_layer.get_meta("LDtk_entity_instances")
@@ -45,6 +46,8 @@ func post_import(entity_layer: Node2D) -> Node2D:
 					node = entity_ref_test.instantiate()
 				elif entity_data.identifier == "Enemy_1":
 					node = enemy_ref.instantiate()
+				elif entity_data.identifier == "Enemy_2":
+					node = enemy_ref_2.instantiate()
 				else:
 					node = Node2D.new()
 

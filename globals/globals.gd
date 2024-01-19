@@ -6,6 +6,9 @@ signal changed_level
 @onready var map_grid_width = 9
 @onready var map_grid_height = 8
 
+@onready var level_screen_tile_width = 30
+@onready var level_screen_tile_height = 19
+
 @onready var player = get_tree().get_nodes_in_group("Player")[0]  
 @onready var rng = RandomNumberGenerator.new()
 

@@ -1,10 +1,18 @@
 extends Node2D
 
 @onready var parent = self.get_parent()
+@onready var direction = Vector2.ZERO
+
+@export var speed: float
+@export var accel: float
 
 func _physics_process(delta):
 	if !Globals.game_paused:
-		var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
-		parent.velocity.x = move_toward(parent.velocity.x, Globals.player_speed * direction.x, Globals.player_accel)
-		parent.velocity.y = move_toward(parent.velocity.y, Globals.player_speed * direction.y, Globals.player_accel)
+		if get_children().size() == 0:
+			default_behavior()
+		parent.velocity.x = move_toward(parent.velocity.x, speed * direction.x, accel)
+		parent.velocity.y = move_toward(parent.velocity.y, speed * direction.y, accel)
 		parent.move_and_slide()
+
+func default_behavior():
+	direction = Input.get_vector("left", "right", "up", "down")

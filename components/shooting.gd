@@ -21,6 +21,6 @@ func shoot() -> void:
 		bullet_instance = bullet_a.instantiate()
 	else:
 		bullet_instance = bullet_b.instantiate()
-	get_tree().root.add_child(bullet_instance)
-	bullet_instance.transform = parent.transform
+	get_tree().root.add_child.call_deferred(bullet_instance)
+	bullet_instance.global_transform = parent.global_transform
 	toggle = !toggle

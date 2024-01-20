@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fikkdd2w3sij"]
+[gd_scene load_steps=4 format=3 uid="uid://fikkdd2w3sij"]
 
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_4xc0u"]
 [ext_resource type="Script" path="res://bundles/ui/bar.gd" id="2_ahlq3"]
+[ext_resource type="Texture2D" uid="uid://c71p0nu1lmapg" path="res://assets/resources/UIpackSheet_transparent.png" id="3_h8t1l"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -82,37 +83,37 @@ scale = Vector2(0.25, 5)
 texture_filter = 1
 position = Vector2(105, 50)
 scale = Vector2(2, 2)
-texture = ExtResource("1_4xc0u")
-hframes = 12
-vframes = 11
-frame = 107
+texture = ExtResource("3_h8t1l")
+hframes = 30
+vframes = 33
+frame = 768
 
 [node name="chord_2" type="Sprite2D" parent="Panel"]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(200, 50)
 scale = Vector2(2, 2)
-texture = ExtResource("1_4xc0u")
-hframes = 12
-vframes = 11
-frame = 103
+texture = ExtResource("3_h8t1l")
+hframes = 30
+vframes = 33
+frame = 714
 
 [node name="chord_3" type="Sprite2D" parent="Panel"]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(295, 50)
 scale = Vector2(2, 2)
-texture = ExtResource("1_4xc0u")
-hframes = 12
-vframes = 11
-frame = 107
+texture = ExtResource("3_h8t1l")
+hframes = 30
+vframes = 33
+frame = 768
 
 [node name="chord_4" type="Sprite2D" parent="Panel"]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(390, 50)
 scale = Vector2(2, 2)
-texture = ExtResource("1_4xc0u")
-hframes = 12
-vframes = 11
-frame = 103
+texture = ExtResource("3_h8t1l")
+hframes = 30
+vframes = 33
+frame = 714

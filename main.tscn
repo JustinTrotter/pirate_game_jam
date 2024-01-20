@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ruf5u"]
 [ext_resource type="PackedScene" uid="uid://fikkdd2w3sij" path="res://scenes/hud.tscn" id="2_bwtjs"]
-[ext_resource type="AudioStream" uid="uid://dxqxyqtpywgrp" path="res://assets/resources/Hopeless__1-Beginning.ogg" id="2_fnuu2"]
+[ext_resource type="AudioStream" uid="uid://dgnum0jm8t0yr" path="res://assets/resources/Hopeless_1-Raw.mp3" id="2_dfm12"]
 [ext_resource type="Script" path="res://camera.gd" id="2_gp5xq"]
 [ext_resource type="AudioStream" uid="uid://di8a3nqlsdhtg" path="res://assets/resources/Hopeless_2-_Interlude.mp3" id="3_ef3q2"]
 [ext_resource type="PackedScene" uid="uid://cyjnu37ysvv4v" path="res://bundles/ui/debug.tscn" id="3_gg2uk"]
@@ -15,7 +15,7 @@
 
 [node name="Main" type="Node2D" groups=["Main"]]
 script = ExtResource("1_ruf5u")
-music_1 = ExtResource("2_fnuu2")
+music_1 = ExtResource("2_dfm12")
 music_2 = ExtResource("3_ef3q2")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
@@ -41,7 +41,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="HUD" parent="UIManager" instance=ExtResource("2_bwtjs")]
-visible = false
 
 [node name="Debug" parent="UIManager" instance=ExtResource("3_gg2uk")]
 unique_name_in_owner = true

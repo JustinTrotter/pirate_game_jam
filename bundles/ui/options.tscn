@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://dle8k4n7ue3i4"]
+
+[ext_resource type="Script" path="res://bundles/ui/options.gd" id="1_l4fjp"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_p7d8m"]
+
+[node name="Options" type="CanvasLayer"]
+script = ExtResource("1_l4fjp")
+
+[node name="options_panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options_panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="options_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options_panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+
+[node name="VolumeSlider" type="HSlider" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_icons/tick = SubResource("Texture2DRD_p7d8m")
+tick_count = 20
+ticks_on_borders = true
+
+[node name="VolumeValue" type="Label" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[connection signal="value_changed" from="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

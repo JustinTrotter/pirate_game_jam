@@ -1,14 +1,12 @@
 extends Node2D
 
-@export var music_1: AudioStream
-@export var music_2: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%SoundManager.set_default_music_bus("Music")
-	%SoundManager.set_music_volume(0.5)
-	%SoundManager.play_music(music_1)
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("options"):
+		%Options.visible = !%Options.visible

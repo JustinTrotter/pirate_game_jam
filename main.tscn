@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://07jopxvkstce"]
+[gd_scene load_steps=13 format=3 uid="uid://07jopxvkstce"]
 
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ruf5u"]
@@ -10,16 +10,13 @@
 [ext_resource type="Script" path="res://assets/resources/map.gd" id="5_fyqe0"]
 [ext_resource type="Script" path="res://a_star.gd" id="6_dk0dx"]
 [ext_resource type="Script" path="res://addons/sound_manager/sound_manager.gd" id="7_xh404"]
+[ext_resource type="Script" path="res://ui_manager.gd" id="9_cesgc"]
+[ext_resource type="PackedScene" uid="uid://dle8k4n7ue3i4" path="res://bundles/ui/options.tscn" id="11_p1b78"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["Main"]]
 script = ExtResource("1_ruf5u")
 music_1 = ExtResource("2_fnuu2")
 music_2 = ExtResource("3_ef3q2")
-
-[node name="HUD" parent="." instance=ExtResource("2_bwtjs")]
-visible = false
-
-[node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(240, 152)
@@ -32,6 +29,19 @@ script = ExtResource("5_fyqe0")
 [node name="A_Star" type="Node2D" parent="Map" groups=["A_Star"]]
 script = ExtResource("6_dk0dx")
 
-[node name="SoundManager" type="Node2D" parent="."]
+[node name="SoundManager" type="Node2D" parent="." groups=["SoundManager"]]
 unique_name_in_owner = true
 script = ExtResource("7_xh404")
+
+[node name="UIManager" type="Node2D" parent="."]
+script = ExtResource("9_cesgc")
+
+[node name="Options" parent="UIManager" instance=ExtResource("11_p1b78")]
+unique_name_in_owner = true
+visible = false
+
+[node name="HUD" parent="UIManager" instance=ExtResource("2_bwtjs")]
+visible = false
+
+[node name="Debug" parent="UIManager" instance=ExtResource("3_gg2uk")]
+unique_name_in_owner = true

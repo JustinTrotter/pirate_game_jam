@@ -24,6 +24,7 @@ aseprite_executable_path="/usr/bin/aseprite"
 
 Globals="*res://globals/globals.tscn"
 Utils="*res://globals/utils.tscn"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
 
@@ -33,7 +34,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/amano-ldtk-importer/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+enabled=PackedStringArray("res://addons/amano-ldtk-importer/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [importer_defaults]
 

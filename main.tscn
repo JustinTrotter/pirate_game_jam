@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://07jopxvkstce"]
+[gd_scene load_steps=11 format=3 uid="uid://07jopxvkstce"]
 
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
+[ext_resource type="Script" path="res://main.gd" id="1_ruf5u"]
 [ext_resource type="PackedScene" uid="uid://fikkdd2w3sij" path="res://scenes/hud.tscn" id="2_bwtjs"]
+[ext_resource type="AudioStream" uid="uid://dxqxyqtpywgrp" path="res://assets/resources/Hopeless__1-Beginning.ogg" id="2_fnuu2"]
 [ext_resource type="Script" path="res://camera.gd" id="2_gp5xq"]
+[ext_resource type="AudioStream" uid="uid://di8a3nqlsdhtg" path="res://assets/resources/Hopeless_2-_Interlude.mp3" id="3_ef3q2"]
 [ext_resource type="PackedScene" uid="uid://cyjnu37ysvv4v" path="res://bundles/ui/debug.tscn" id="3_gg2uk"]
 [ext_resource type="Script" path="res://assets/resources/map.gd" id="5_fyqe0"]
 [ext_resource type="Script" path="res://a_star.gd" id="6_dk0dx"]
+[ext_resource type="Script" path="res://addons/sound_manager/sound_manager.gd" id="7_xh404"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_ruf5u")
+music_1 = ExtResource("2_fnuu2")
+music_2 = ExtResource("3_ef3q2")
 
 [node name="HUD" parent="." instance=ExtResource("2_bwtjs")]
 visible = false
@@ -24,3 +31,7 @@ script = ExtResource("5_fyqe0")
 
 [node name="A_Star" type="Node2D" parent="Map" groups=["A_Star"]]
 script = ExtResource("6_dk0dx")
+
+[node name="SoundManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_xh404")

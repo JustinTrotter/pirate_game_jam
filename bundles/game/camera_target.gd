@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	position = Vector2(
 		Globals.current_screen.x * Globals.VIEWPORT_WIDTH + Globals.VIEWPORT_WIDTH / 2.0,
-		Globals.current_screen.y * Globals.VIEWPORT_HEIGHT + Globals.VIEWPORT_HEIGHT / 2.0
+		(Globals.current_screen.y * Globals.VIEWPORT_HEIGHT + Globals.VIEWPORT_HEIGHT / 2.0) + 25.0
 	)
 	if prev_position != position:
 		Globals.changed_level.emit()

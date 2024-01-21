@@ -7,7 +7,7 @@ signal changed_level
 @onready var map_grid_height = 8
 
 @onready var level_screen_tile_width = 30
-@onready var level_screen_tile_height = 19
+@onready var level_screen_tile_height = 16
 
 @onready var player = get_tree().get_nodes_in_group("Player")[0]  
 @onready var rng = RandomNumberGenerator.new()
@@ -31,7 +31,7 @@ func _process(delta):
 var game_paused: bool = false
 
 var VIEWPORT_WIDTH = 480.0
-var VIEWPORT_HEIGHT = 304.0
+var VIEWPORT_HEIGHT = 256.0
 var current_screen = Vector2.ZERO
 
 var map_grid_positions: PackedVector2Array

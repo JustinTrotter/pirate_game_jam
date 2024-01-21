@@ -41,6 +41,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="HUD" parent="UIManager" instance=ExtResource("2_bwtjs")]
+visible = false
 
 [node name="Debug" parent="UIManager" instance=ExtResource("3_gg2uk")]
 unique_name_in_owner = true

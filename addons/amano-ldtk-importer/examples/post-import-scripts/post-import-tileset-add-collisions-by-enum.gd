@@ -23,8 +23,11 @@ func post_import(tileset: TileSet) -> TileSet:
 			return tileset
 
 		tileset.add_physics_layer()
+		tileset.add_physics_layer()
 		tileset.set_physics_layer_collision_layer(physics_layer_id, collision_layer)
 		tileset.set_physics_layer_collision_mask(physics_layer_id, 0)
+		tileset.set_physics_layer_collision_layer(physics_layer_id + 1, collision_layer + 1)
+		tileset.set_physics_layer_collision_mask(physics_layer_id + 1, 0 + 1)
 		var tile_size := tileset.tile_size
 		var tile_extents := Vector2(tile_size.x/2, tile_size.y/2)
 		var grid_size :Vector2i = tileset_source.get_atlas_grid_size()
@@ -45,6 +48,20 @@ func post_import(tileset: TileSet) -> TileSet:
 							tile_data.add_collision_polygon(physics_layer_id)
 							tile_data.set_collision_polygon_points(
 								physics_layer_id,
+								0,
+								PackedVector2Array(
+									[
+										Vector2(-tile_extents.x, -tile_extents.y),
+										Vector2(-tile_extents.x, tile_extents.y),
+										Vector2(tile_extents.x, tile_extents.y),
+										Vector2(tile_extents.x, -tile_extents.y)
+									]
+								)
+							)
+						if enums.has("Water"):
+							tile_data.add_collision_polygon(physics_layer_id + 1)
+							tile_data.set_collision_polygon_points(
+								physics_layer_id + 1,
 								0,
 								PackedVector2Array(
 									[

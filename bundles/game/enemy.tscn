@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm11n5kxirrr4"]
+[gd_scene load_steps=11 format=3 uid="uid://bm11n5kxirrr4"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy.gd" id="1_2gxu0"]
 [ext_resource type="Texture2D" uid="uid://b815k75dx8y7s" path="res://assets/concepts/mob1.png" id="2_mk04t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_ctxki"]
 [ext_resource type="Script" path="res://bundles/game/animation.gd" id="4_2ruh5"]
 [ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_eykap"]
+[ext_resource type="Script" path="res://components/flying.gd" id="7_kriqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -33,8 +34,8 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_2gxu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,3 +62,6 @@ accel = 50.0
 
 [node name="PathToPlayer" type="Node2D" parent="Movement"]
 script = ExtResource("4_eykap")
+
+[node name="Flying" type="Node2D" parent="."]
+script = ExtResource("7_kriqy")

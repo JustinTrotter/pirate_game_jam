@@ -42,7 +42,7 @@ scale = Vector2(2, 2)
 zoom = Vector2(2, 2)
 script = ExtResource("2_gp5xq")
 
-[node name="Map" parent="Game Screen/SubViewport" instance=ExtResource("1_idevj")]
+[node name="Map" parent="Game Screen/SubViewport" groups=["Map"] instance=ExtResource("1_idevj")]
 script = ExtResource("5_fyqe0")
 
 [node name="A_Star" type="Node2D" parent="Game Screen/SubViewport/Map" groups=["A_Star"]]

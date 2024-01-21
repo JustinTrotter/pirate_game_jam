@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ryijxv30q0b1"]
+
+[node name="MiniMapRoom" type="ColorRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.211765, 0.239216, 0.290196, 1)

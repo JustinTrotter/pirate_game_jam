@@ -4,7 +4,7 @@ signal tempo_tick
 signal changed_level
 
 @onready var map_grid_width = 9
-@onready var map_grid_height = 8
+@onready var map_grid_height = 7
 
 @onready var level_screen_tile_width = 30
 @onready var level_screen_tile_height = 16

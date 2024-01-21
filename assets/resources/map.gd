@@ -3,7 +3,7 @@ extends Node2D
 @onready var level_nodes = get_children()
 @onready var grid_width = Globals.map_grid_width
 @onready var grid_height = Globals.map_grid_height
-@onready var current_level_number = 4
+@onready var current_level_number = 8
 @onready var max_number_of_levels = Globals.rng.randi_range(1, 2) + 5 + current_level_number * 2.6
 @onready var min_number_of_levels = max_number_of_levels - 2
 @onready var levels_added = 0

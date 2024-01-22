@@ -12,7 +12,6 @@ func _process(delta):
 		position.y += speed * delta
 		tween_scale()
 		
-		
 func tween_scale():
 	if !scaling:
 		scaling = true

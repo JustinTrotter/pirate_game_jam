@@ -8,11 +8,13 @@
 [node name="HUD" type="CanvasLayer"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -100.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 color = Color(0.211765, 0.239216, 0.290196, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -159,3 +161,12 @@ theme_override_constants/margin_bottom = 5
 
 [node name="MiniMap" parent="HBoxContainer/MarginContainer2" instance=ExtResource("4_djg2i")]
 layout_mode = 2
+
+[node name="Weapon_Image2" type="Sprite2D" parent="HBoxContainer"]
+texture_filter = 1
+position = Vector2(470, -27)
+scale = Vector2(5, 5)
+texture = ExtResource("1_4xc0u")
+hframes = 12
+vframes = 11
+frame = 121

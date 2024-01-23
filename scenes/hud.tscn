@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://fikkdd2w3sij"]
+[gd_scene load_steps=10 format=3 uid="uid://fikkdd2w3sij"]
 
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_4xc0u"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_x7eym"]
 [ext_resource type="Texture2D" uid="uid://bc58me2x07lqh" path="res://icon.svg" id="2_4kqo6"]
 [ext_resource type="Script" path="res://bundles/ui/bar.gd" id="2_ahlq3"]
-[ext_resource type="Texture2D" uid="uid://c71p0nu1lmapg" path="res://assets/resources/UIpackSheet_transparent.png" id="3_h8t1l"]
 [ext_resource type="PackedScene" uid="uid://cgwsfuehl14qf" path="res://bundles/ui/mini_map.tscn" id="4_djg2i"]
+[ext_resource type="PackedScene" uid="uid://bu7rat15ve6qp" path="res://bundles/ui/chord.tscn" id="5_ff5ph"]
+[ext_resource type="Texture2D" uid="uid://dx7l4x7pwpph2" path="res://assets/resources/bullet_1.png" id="6_wwngw"]
+[ext_resource type="Texture2D" uid="uid://wnb2v2vhygj7" path="res://assets/resources/bullet_2.png" id="7_lcib2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ns2xx"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)
@@ -114,7 +116,6 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="WeaponButton" type="TextureButton" parent="HBoxContainer/BarHud/MarginContainer"]
-texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("2_4kqo6")
 ignore_texture_size = true
@@ -171,44 +172,24 @@ texture_filter = 1
 position = Vector2(-5, 5)
 scale = Vector2(0.25, 5)
 
-[node name="chord_1" type="Sprite2D" parent="HBoxContainer/BarHud"]
-texture_filter = 1
+[node name="chord_1" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 position = Vector2(114, 50)
-scale = Vector2(2, 2)
-texture = ExtResource("3_h8t1l")
-hframes = 30
-vframes = 33
-frame = 768
+graphic = ExtResource("6_wwngw")
 
-[node name="chord_2" type="Sprite2D" parent="HBoxContainer/BarHud"]
+[node name="chord_2" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
-texture_filter = 1
 position = Vector2(209, 50)
-scale = Vector2(2, 2)
-texture = ExtResource("3_h8t1l")
-hframes = 30
-vframes = 33
-frame = 714
+graphic = ExtResource("7_lcib2")
 
-[node name="chord_3" type="Sprite2D" parent="HBoxContainer/BarHud"]
+[node name="chord_3" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
-texture_filter = 1
 position = Vector2(304, 50)
-scale = Vector2(2, 2)
-texture = ExtResource("3_h8t1l")
-hframes = 30
-vframes = 33
-frame = 768
+graphic = ExtResource("6_wwngw")
 
-[node name="chord_4" type="Sprite2D" parent="HBoxContainer/BarHud"]
+[node name="chord_4" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
-texture_filter = 1
 position = Vector2(399, 50)
-scale = Vector2(2, 2)
-texture = ExtResource("3_h8t1l")
-hframes = 30
-vframes = 33
-frame = 714
+graphic = ExtResource("7_lcib2")
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2

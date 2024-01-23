@@ -15,6 +15,8 @@ extends CanvasLayer
 @onready var mouse_in_inventory = false
 @onready var mouse_in_hud = false
 
+@onready var item_scene: PackedScene = preload("res://bundles/ui/item.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_inventory_items()
@@ -42,13 +44,11 @@ func check_mouse_in_inventory():
 	
 func load_inventory_items():
 	for i in range(0, 15):
-		var graphic = TextureButton.new()
-		graphic.texture_normal = load(weapon_tileset)
-		graphic.ignore_texture_size = true
-		graphic.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		graphic.size_flags_vertical = Control.SIZE_EXPAND_FILL
-		graphic.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT
-		inventory_grid.add_child(graphic)
+		var item = item_scene.instantiate()
+		var image = AssetCache.bullets[i % AssetCache.bullets.size()]
+		item.image = image
+		item.texture_normal = image
+		inventory_grid.add_child(item)
 
 func _on_weapon_button_pressed():
 	if is_tweening: return

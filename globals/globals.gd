@@ -12,6 +12,8 @@ signal changed_level
 @onready var player = get_tree().get_nodes_in_group("Player")[0]  
 @onready var rng = RandomNumberGenerator.new()
 
+@onready var held_item
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

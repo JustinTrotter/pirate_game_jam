@@ -42,3 +42,5 @@ visible = false
 [node name="CameraTarget" type="Node2D" parent="." groups=["CameraTarget"]]
 script = ExtResource("5_bkyss")
 magnitude = 100.0
+
+[node name="Shooting" parent="." instance=ExtResource("4_tub0f")]

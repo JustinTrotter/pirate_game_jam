@@ -11,4 +11,4 @@ texture_filter = 1
 texture = ExtResource("2_8elvi")
 hframes = 30
 vframes = 33
-frame = 768
+frame = 799

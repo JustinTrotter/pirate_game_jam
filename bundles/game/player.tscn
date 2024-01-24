@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://bundles/game/player.gd" id="1_v3y6g"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_raixs"]
 [ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_h3vux"]
-[ext_resource type="Script" path="res://bundles/game/input_controller.gd" id="4_3wvic"]
+[ext_resource type="PackedScene" uid="uid://b2tweaprwnlbi" path="res://components/input_controller.tscn" id="4_fsu0c"]
 [ext_resource type="PackedScene" uid="uid://1k6kg5fn1k81" path="res://components/shooting.tscn" id="4_tub0f"]
 [ext_resource type="Script" path="res://bundles/game/camera_target.gd" id="5_bkyss"]
 
@@ -33,14 +33,13 @@ region_rect = Rect2(0, 0, 16, 16)
 speed = 200.0
 accel = 50.0
 
-[node name="InputController" type="Node2D" parent="Movement"]
-script = ExtResource("4_3wvic")
-
-[node name="Bullet" parent="." instance=ExtResource("4_tub0f")]
-visible = false
+[node name="InputController" parent="Movement" instance=ExtResource("4_fsu0c")]
 
 [node name="CameraTarget" type="Node2D" parent="." groups=["CameraTarget"]]
 script = ExtResource("5_bkyss")
 magnitude = 100.0
 
 [node name="Shooting" parent="." instance=ExtResource("4_tub0f")]
+
+[node name="InputController" parent="Shooting" instance=ExtResource("4_fsu0c")]
+retain_last_direction = true

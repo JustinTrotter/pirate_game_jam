@@ -7,6 +7,7 @@ var bullet_b: PackedScene = preload("res://bundles/game/bullet_B.tscn")
 
 @onready var parent = self.get_parent()
 
+@onready var direction = Vector2.UP
 
 var toggle = false
 # Called when the node enters the scene tree for the first time.
@@ -15,13 +16,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if get_children().size() == 0:
+		default_behavior()
 
 func shoot(bullet: PackedScene) -> void:
 	#if Input.is_action_just_pressed("shoot"):\
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.global_position = parent.global_position
 
-	map.add_child.call_deferred(bullet_instance)
+	bullet_instance.shoot_direction = direction
+	map.add_child(bullet_instance)
 
 	toggle = !toggle
+
+func default_behavior():
+	direction = Vector2.UP
+	

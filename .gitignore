@@ -2,5 +2,6 @@
 .godot/
 export/
 build/
+assets/licensed_assets/*
 wasm/
 *.zip

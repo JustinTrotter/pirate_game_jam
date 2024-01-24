@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8soppie2iblj"]
+
+[ext_resource type="Script" path="res://bundles/game/enemy_2.gd" id="1_62xno"]
+[ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_iqq3k"]
+[ext_resource type="PackedScene" uid="uid://butll5mcpfxor" path="res://components/spawner.tscn" id="3_0dga8"]
+[ext_resource type="Script" path="res://components/spawner.gd" id="4_br6gv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
+radius = 8.0
+
+[node name="Enemy_Spawner" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_62xno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_c5rpu")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+texture_filter = 1
+texture = ExtResource("2_iqq3k")
+hframes = 12
+vframes = 11
+frame = 60
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Spawner" parent="." instance=ExtResource("3_0dga8")]
+script = ExtResource("4_br6gv")

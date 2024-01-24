@@ -11,7 +11,7 @@
 	"iid": "f5de3c00-b0a0-11ee-9b17-71a5d1217e0f",
 	"jsonVersion": "1.4.1",
 	"appBuildId": 473404,
-	"nextUid": 38,
+	"nextUid": 39,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "GridVania",
@@ -205,6 +205,40 @@
 			"pivotX": 0,
 			"pivotY": 0,
 			"fieldDefs": []
+		},
+		{
+			"identifier": "Enemy_Spawner_1",
+			"uid": 38,
+			"tags": [],
+			"exportToToc": false,
+			"doc": null,
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"minWidth": null,
+			"maxWidth": null,
+			"minHeight": null,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 0.08,
+			"lineOpacity": 0,
+			"hollow": false,
+			"color": "#E4A672",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 2,
+			"tileRenderMode": "FitInside",
+			"tileRect": { "tilesetUid": 2, "x": 0, "y": 80, "w": 16, "h": 16 },
+			"uiTileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": []
 		}
 	], "tilesets": [
 		{
@@ -370,6 +404,22 @@
 							"height": 16,
 							"defUid": 37,
 							"px": [240,80],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "Enemy_Spawner_1",
+							"__grid": [23,6],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": { "tilesetUid": 2, "x": 0, "y": 80, "w": 16, "h": 16 },
+							"__smartColor": "#E4A672",
+							"__worldX": 368,
+							"__worldY": 96,
+							"iid": "55f59d80-b0a0-11ee-adc2-ab309f675c90",
+							"width": 16,
+							"height": 16,
+							"defUid": 38,
+							"px": [368,96],
 							"fieldInstances": []
 						}
 					]
@@ -988,7 +1038,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [ { "levelIid": "f4c645a0-b0a0-11ee-a5d0-eb1fa96c353f", "dir": "o" }, { "levelIid": "b4e0d9a0-b0a0-11ee-a5d0-4113284af1d2", "dir": "s" } ]
+			"__neighbours": [ { "levelIid": "b4e0d9a0-b0a0-11ee-a5d0-4113284af1d2", "dir": "s" }, { "levelIid": "f4c645a0-b0a0-11ee-a5d0-eb1fa96c353f", "dir": "n" } ]
 		},
 		{
 			"identifier": "Walls_sw",
@@ -1109,7 +1159,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [ { "levelIid": "90db8190-b0a0-11ee-a5d0-41c2e39acc39", "dir": "o" }, { "levelIid": "bf832bb0-b0a0-11ee-a5d0-27a97430bd41", "dir": "e" } ]
+			"__neighbours": [ { "levelIid": "90db8190-b0a0-11ee-a5d0-41c2e39acc39", "dir": "n" }, { "levelIid": "bf832bb0-b0a0-11ee-a5d0-27a97430bd41", "dir": "e" } ]
 		},
 		{
 			"identifier": "Walls_ns",
@@ -1244,7 +1294,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [ { "levelIid": "90db8190-b0a0-11ee-a5d0-41c2e39acc39", "dir": "w" }, { "levelIid": "b4e0d9a0-b0a0-11ee-a5d0-4113284af1d2", "dir": "w" }, { "levelIid": "d2f92a50-b0a0-11ee-a5d0-e5904046f872", "dir": "e" } ]
+			"__neighbours": [ { "levelIid": "b4e0d9a0-b0a0-11ee-a5d0-4113284af1d2", "dir": "w" }, { "levelIid": "d2f92a50-b0a0-11ee-a5d0-e5904046f872", "dir": "e" } ]
 		},
 		{
 			"identifier": "Walls_es",
@@ -1756,7 +1806,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "61a42520-b0a0-11ee-a5d0-4de45955d68d", "dir": "e" }]
+			"__neighbours": []
 		},
 		{
 			"identifier": "Walls_new",
@@ -2040,7 +2090,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "61a42520-b0a0-11ee-a5d0-4de45955d68d", "dir": "w" }]
+			"__neighbours": []
 		},
 		{
 			"identifier": "Walls_esw",
@@ -2175,7 +2225,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "1d20ee10-b0a0-11ee-a5d0-eb54554c61dc", "dir": "w" }]
+			"__neighbours": []
 		},
 		{
 			"identifier": "Level_1",
@@ -2730,7 +2780,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [ { "levelIid": "f5de8a20-b0a0-11ee-9b17-cb7312fac04e", "dir": "w" }, { "levelIid": "81531b60-b0a0-11ee-a5d0-a32dd63c8e3d", "dir": "e" } ]
+			"__neighbours": [{ "levelIid": "f5de8a20-b0a0-11ee-9b17-cb7312fac04e", "dir": "w" }]
 		},
 		{
 			"identifier": "Walls_n",
@@ -2930,7 +2980,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "07655d80-b0a0-11ee-a5d0-9527a68026e2", "dir": "w" }]
+			"__neighbours": []
 		},
 		{
 			"identifier": "Walls_s",

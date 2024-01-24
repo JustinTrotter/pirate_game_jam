@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6ob8ceo45ram"]
+[gd_scene load_steps=9 format=3 uid="uid://6ob8ceo45ram"]
 
 [ext_resource type="Script" path="res://bundles/game/player.gd" id="1_v3y6g"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_raixs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2tweaprwnlbi" path="res://components/input_controller.tscn" id="4_fsu0c"]
 [ext_resource type="PackedScene" uid="uid://1k6kg5fn1k81" path="res://components/shooting.tscn" id="4_tub0f"]
 [ext_resource type="Script" path="res://bundles/game/camera_target.gd" id="5_bkyss"]
+[ext_resource type="PackedScene" uid="uid://bou4uhj4m3kue" path="res://components/toward_enemy.tscn" id="7_kio26"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -41,5 +42,4 @@ magnitude = 100.0
 
 [node name="Shooting" parent="." instance=ExtResource("4_tub0f")]
 
-[node name="InputController" parent="Shooting" instance=ExtResource("4_fsu0c")]
-retain_last_direction = true
+[node name="TowardEnemy" parent="Shooting" instance=ExtResource("7_kio26")]

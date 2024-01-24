@@ -4,6 +4,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.connect("changed_level", on_changed_level)
 	%VolumeSlider.value = sound_manager.get_music_volume() * 100
 	%VolumeValue.text = str(%VolumeSlider.value)
 
@@ -13,4 +14,8 @@ func _process(delta):
 
 func _on_volume_slider_value_changed(value):
 	sound_manager.set_music_volume(%VolumeSlider.value / 100)
+	%VolumeValue.text = str(%VolumeSlider.value)
+
+func on_changed_level():
+	%VolumeSlider.value = sound_manager.get_music_volume() * 100
 	%VolumeValue.text = str(%VolumeSlider.value)

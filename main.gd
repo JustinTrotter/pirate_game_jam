@@ -6,8 +6,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%SoundManager.set_default_music_bus("Music")
-	%SoundManager.set_music_volume(0.5)
 	%SoundManager.play_music(music_1)
+	%SoundManager.set_music_volume(0.05)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

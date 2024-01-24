@@ -5,6 +5,8 @@ extends Sprite2D
 
 @onready var mouse_in_chord = false
 
+@export var bullet_scene: PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	texture = graphic
@@ -17,6 +19,7 @@ func _process(delta):
 	if Input.is_action_just_released("Click"):
 		if mouse_in_chord:
 			texture = Globals.held_item
+			bullet_scene = AssetCache.bullet_scenes[Globals.held_index]
 
 func check_mouse_in_chord():
 	if not Rect2(-self.size, self.size * 2).has_point(self.get_local_mouse_position()):

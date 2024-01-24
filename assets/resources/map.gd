@@ -106,7 +106,6 @@ func initialize_level_nodes():
 func place_starting_level_into_queue(cell: int):
 	level_cells[cell] = true
 	level_lookup_map[cell] = level_nodes[0]
-	print("level_nodes[0]: ", level_nodes[0])
 	Utils.add_to_queue(level_queue, cell)
 	var level_coords = get_level_coords_from_cell(35)
 	level_nodes[0].position = Vector2(level_coords.x * Globals.VIEWPORT_WIDTH, level_coords.y * Globals.VIEWPORT_HEIGHT)

@@ -13,6 +13,7 @@ signal changed_level
 @onready var rng = RandomNumberGenerator.new()
 
 @onready var held_item
+@onready var held_index = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -17,15 +17,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func shoot() -> void:
-	print("SHOOT")
-
+func shoot(bullet: PackedScene) -> void:
 	#if Input.is_action_just_pressed("shoot"):\
-	var bullet_instance
-	if (toggle):
-		bullet_instance = bullet_a.instantiate()
-	else:
-		bullet_instance = bullet_b.instantiate()
+	var bullet_instance = bullet.instantiate()
 	bullet_instance.global_position = parent.global_position
 
 	map.add_child.call_deferred(bullet_instance)

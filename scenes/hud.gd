@@ -43,11 +43,14 @@ func check_mouse_in_inventory():
 		mouse_in_inventory = true
 	
 func load_inventory_items():
+	var bullet_available = AssetCache.bullet_graphics.size()
 	for i in range(0, 15):
 		var item = item_scene.instantiate()
-		var image = AssetCache.bullets[i % AssetCache.bullets.size()]
-		item.image = image
-		item.texture_normal = image
+		if i < bullet_available:
+			var image = AssetCache.bullet_graphics[i]
+			item.image = image
+			item.texture_normal = image
+			item.item_index = i
 		inventory_grid.add_child(item)
 
 func _on_weapon_button_pressed():
@@ -57,6 +60,7 @@ func _on_weapon_button_pressed():
 	var tween = get_tree().create_tween()
 	tween.set_parallel(false)
 	if !is_open:
+		Globals.game_paused = true
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(inventory_panel, "position", inventory_open_position.position, 0.50)
@@ -70,4 +74,5 @@ func _on_weapon_button_pressed():
 
 func _on_tween_complete():
 	is_tweening = false
+	Globals.game_paused = is_open
 

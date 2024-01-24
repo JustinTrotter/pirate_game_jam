@@ -3,6 +3,7 @@ extends TextureButton
 @onready var item_held = false
 @onready var default_cursor = load("res://assets/resources/cursor_arrow.png")
 @onready var image
+@onready var item_index
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,8 +15,11 @@ func _process(delta):
 		if item_held == true:
 			Input.set_custom_mouse_cursor(default_cursor, 0, Vector2(0, 0))
 			item_held = false
-			Globals.held_item = image
+			
+			
 
 func _on_button_down():
 	Input.set_custom_mouse_cursor(image, 0, Vector2(12, 14))
 	item_held = true;
+	Globals.held_item = image
+	Globals.held_index = item_index

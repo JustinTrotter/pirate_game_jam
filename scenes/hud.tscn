@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fikkdd2w3sij"]
+[gd_scene load_steps=12 format=3 uid="uid://fikkdd2w3sij"]
 
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_4xc0u"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_x7eym"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cgwsfuehl14qf" path="res://bundles/ui/mini_map.tscn" id="4_djg2i"]
 [ext_resource type="PackedScene" uid="uid://bu7rat15ve6qp" path="res://bundles/ui/chord.tscn" id="5_ff5ph"]
 [ext_resource type="Texture2D" uid="uid://dx7l4x7pwpph2" path="res://assets/resources/bullet_1.png" id="6_wwngw"]
+[ext_resource type="PackedScene" uid="uid://b1cm3qaakvpro" path="res://bundles/game/bullet_A.tscn" id="7_g6kbd"]
 [ext_resource type="Texture2D" uid="uid://wnb2v2vhygj7" path="res://assets/resources/bullet_2.png" id="7_lcib2"]
+[ext_resource type="PackedScene" uid="uid://djumrabhxphs2" path="res://bundles/game/bullet_B.tscn" id="9_672sp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ns2xx"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)
@@ -173,23 +175,28 @@ position = Vector2(-5, 5)
 scale = Vector2(0.25, 5)
 
 [node name="chord_1" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
+unique_name_in_owner = true
 position = Vector2(114, 50)
 graphic = ExtResource("6_wwngw")
+bullet_scene = ExtResource("7_g6kbd")
 
 [node name="chord_2" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
 position = Vector2(209, 50)
 graphic = ExtResource("7_lcib2")
+bullet_scene = ExtResource("9_672sp")
 
 [node name="chord_3" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
 position = Vector2(304, 50)
 graphic = ExtResource("6_wwngw")
+bullet_scene = ExtResource("7_g6kbd")
 
 [node name="chord_4" parent="HBoxContainer/BarHud" instance=ExtResource("5_ff5ph")]
 unique_name_in_owner = true
 position = Vector2(399, 50)
 graphic = ExtResource("7_lcib2")
+bullet_scene = ExtResource("9_672sp")
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2

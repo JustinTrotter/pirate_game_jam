@@ -9,3 +9,5 @@ extends Node2D
 	preload("res://bundles/game/bullet_A.tscn"),
 	preload("res://bundles/game/bullet_B.tscn")
 ]
+
+@onready var enemy: PackedScene = preload("res://bundles/game/enemy_2.tscn")

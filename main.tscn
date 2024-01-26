@@ -31,7 +31,7 @@ offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="Game Screen"]
+[node name="SubViewport" type="SubViewport" parent="Game Screen" groups=["GameScreen"]]
 handle_input_locally = false
 size = Vector2i(960, 608)
 render_target_update_mode = 4

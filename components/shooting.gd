@@ -26,8 +26,9 @@ func shoot(bullet: PackedScene) -> void:
 
 	bullet_instance.shoot_direction = direction
 	map.add_child(bullet_instance)
-
-	toggle = !toggle
+#
+	#toggle = !toggle
+	pass
 
 func default_behavior():
 	direction = Vector2.UP

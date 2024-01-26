@@ -11,6 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_dead():
+		Globals.total_spawned_enemies -= 1
 		parent.queue_free()
 
 func is_dead() -> bool:

@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqfn0o2vvcmvh"]
+[gd_scene load_steps=9 format=3 uid="uid://bqfn0o2vvcmvh"]
 
 [ext_resource type="Script" path="res://bundles/game/bullet.gd" id="1_c1dwt"]
 [ext_resource type="PackedScene" uid="uid://173myrf0fpy1" path="res://components/attack.tscn" id="2_atq4o"]
+[ext_resource type="PackedScene" uid="uid://dffr4xswq43w0" path="res://components/damage_self_on_hit.tscn" id="3_1c1pa"]
 [ext_resource type="PackedScene" uid="uid://daxxwxv3lvlwg" path="res://components/damage_other_on_hit.tscn" id="4_kjnim"]
-[ext_resource type="PackedScene" uid="uid://ckbsniov5tkvw" path="res://components/die_on_hit.tscn" id="4_wot04"]
+[ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="5_rb278"]
+[ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="6_rpi32"]
+[ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="7_qjj7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7f06j"]
 
@@ -17,9 +20,16 @@ shape = SubResource("CircleShape2D_7f06j")
 
 [node name="Attack" parent="." instance=ExtResource("2_atq4o")]
 
-[node name="DieOnHit" parent="." instance=ExtResource("4_wot04")]
+[node name="DamageSelfOnHit" parent="." instance=ExtResource("3_1c1pa")]
 
-[node name="DamageOnHit" parent="." instance=ExtResource("4_kjnim")]
+[node name="DamageOtherOnHit" parent="." instance=ExtResource("4_kjnim")]
 
-[connection signal="body_shape_entered" from="." to="DieOnHit" method="_on_bullet_base_body_shape_entered"]
-[connection signal="body_shape_entered" from="." to="DamageOnHit" method="_on_bullet_base_body_shape_entered"]
+[node name="Health" parent="." instance=ExtResource("5_rb278")]
+health = 1
+
+[node name="Damage" parent="." instance=ExtResource("6_rpi32")]
+
+[node name="Death" parent="." instance=ExtResource("7_qjj7o")]
+
+[connection signal="body_shape_entered" from="." to="DamageSelfOnHit" method="_on_bullet_base_body_shape_entered"]
+[connection signal="body_shape_entered" from="." to="DamageOtherOnHit" method="_on_bullet_base_body_shape_entered"]

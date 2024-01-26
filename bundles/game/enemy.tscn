@@ -1,44 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm11n5kxirrr4"]
+[gd_scene load_steps=10 format=3 uid="uid://cu3oltgwoq4a3"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy.gd" id="1_2gxu0"]
-[ext_resource type="Texture2D" uid="uid://b815k75dx8y7s" path="res://assets/concepts/mob1.png" id="2_mk04t"]
-[ext_resource type="Script" path="res://bundles/game/sprite.gd" id="3_cjdid"]
-[ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_ctxki"]
-[ext_resource type="Script" path="res://bundles/game/animation.gd" id="4_2ruh5"]
-[ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_eykap"]
-[ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="7_ou5g2"]
-[ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="8_xa8pk"]
-[ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="9_b50i7"]
-[ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="10_mfpe7"]
+[ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_gsprm"]
+[ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_nyoae"]
+[ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_mhjqn"]
+[ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="5_g8kh8"]
+[ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="6_grmhl"]
+[ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="7_cjpex"]
+[ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="8_oqkme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
 
-[sub_resource type="Animation" id="Animation_pk3ic"]
-resource_name = "idle"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_itqtt"]
-_data = {
-"idle": SubResource("Animation_pk3ic")
-}
-
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 12
-collision_mask = 13
+collision_mask = 15
 script = ExtResource("1_2gxu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,33 +23,25 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_c5rpu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
-texture = ExtResource("2_mk04t")
-hframes = 2
-vframes = 2
-script = ExtResource("3_cjdid")
+z_index = 100
+texture_filter = 1
+texture = ExtResource("2_gsprm")
+hframes = 12
+vframes = 11
+frame = 120
+region_rect = Rect2(0, 0, 16, 16)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_itqtt")
-}
-script = ExtResource("4_2ruh5")
-
-[node name="Movement" parent="." instance=ExtResource("3_ctxki")]
+[node name="Movement" parent="." instance=ExtResource("3_nyoae")]
 speed = 100.0
 accel = 50.0
 
 [node name="PathToPlayer" type="Node2D" parent="Movement"]
-script = ExtResource("4_eykap")
+script = ExtResource("4_mhjqn")
 
-[node name="Flying" type="Node2D" parent="."]
-
-[node name="Health" parent="." instance=ExtResource("7_ou5g2")]
+[node name="Health" parent="." instance=ExtResource("5_g8kh8")]
 health = 100
 
-[node name="Death" parent="." instance=ExtResource("8_xa8pk")]
+[node name="Damage" parent="." instance=ExtResource("6_grmhl")]
+damage_sound_fx = ExtResource("7_cjpex")
 
-[node name="Damage" parent="." instance=ExtResource("9_b50i7")]
-damage_sound_fx = ExtResource("10_mfpe7")
-min_sound_pitch = 0.75
-max_sound_pitch = 1.25
+[node name="Death" parent="." instance=ExtResource("8_oqkme")]

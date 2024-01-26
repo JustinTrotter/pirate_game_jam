@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dasq0hrebpi7s"]
+[gd_scene load_steps=11 format=3 uid="uid://dasq0hrebpi7s"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy_2.gd" id="1_oar22"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_u02pu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="6_vtrfa"]
 [ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="7_05v51"]
 [ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="7_s0nbb"]
+[ext_resource type="PackedScene" uid="uid://butll5mcpfxor" path="res://components/spawner.tscn" id="9_xwjrg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -19,7 +20,7 @@ script = ExtResource("1_oar22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 shape = SubResource("CircleShape2D_c5rpu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -45,3 +46,5 @@ health = 100
 damage_sound_fx = ExtResource("7_05v51")
 
 [node name="Death" parent="." instance=ExtResource("7_s0nbb")]
+
+[node name="Spawner" parent="." instance=ExtResource("9_xwjrg")]

@@ -20,11 +20,12 @@ func _process(delta):
 	pass
 
 func damage(value):
+	play_damage_sound()
 	var damage_value = value
 	if armor_component:
 		damage_value = armor_component.reduce_damage(value)
 	health_component.health -= damage_value
-	play_damage_sound()
+
 
 func play_damage_sound():
 	var pitch = 1.0

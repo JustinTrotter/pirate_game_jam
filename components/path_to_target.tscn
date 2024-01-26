@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://neq31mfj4pro"]
+
+[ext_resource type="Script" path="res://components/drunk_walk.gd" id="1_hi6ps"]
+
+[node name="PathToTarget" type="Node2D"]
+script = ExtResource("1_hi6ps")

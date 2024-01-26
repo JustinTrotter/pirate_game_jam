@@ -16,7 +16,7 @@ func _ready():
 	%SoundManager.set_default_music_bus("Music")
 	%SoundManager.play_music(title_music)
 	%SoundManager.set_music_volume(0.05)
-	%SoundManager.set_sound_volume(0.05)
+	%SoundManager.set_sound_volume(0.50)
 	%Curtain.visible = true
 	fade_out_curtain()
 
@@ -52,8 +52,9 @@ func fade_music_in():
 	tween.tween_property(self, "transition_volume", pre_transition_volume, 1)
 	tween.tween_callback(finish_fading)
 
+
 func finish_fading():
-	pass
+	is_fading = false
 	
 func fade_out_curtain():
 	var tween = get_tree().create_tween()

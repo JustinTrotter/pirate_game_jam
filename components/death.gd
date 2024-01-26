@@ -5,6 +5,8 @@ extends Node2D
 @onready var parent = get_parent();
 @onready var health_component;
 
+@export var exp_on_death: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_component = parent.find_child("Health")
@@ -14,7 +16,7 @@ func _ready():
 func _process(delta):
 	if is_dead():
 		Globals.total_spawned_enemies -= 1
-		player_progression.increase_exp(1.0)
+		player_progression.increase_exp(exp_on_death)
 		parent.queue_free()
 
 func is_dead() -> bool:

@@ -15,7 +15,7 @@ func _process(delta):
 		face_towards_direction()
 		position.x += speed * delta * -shoot_direction.x
 		position.y += speed * delta * -shoot_direction.y
-		tween_scale()
+		#tween_scale()
 		
 func tween_scale():
 	if !scaling:

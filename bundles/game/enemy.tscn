@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu3oltgwoq4a3"]
+[gd_scene load_steps=11 format=3 uid="uid://cu3oltgwoq4a3"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy.gd" id="1_2gxu0"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_gsprm"]
 [ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_nyoae"]
-[ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_mhjqn"]
+[ext_resource type="PackedScene" uid="uid://neq31mfj4pro" path="res://components/path_to_target.tscn" id="4_a8rnd"]
 [ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="5_g8kh8"]
+[ext_resource type="PackedScene" uid="uid://dpv66nj4eqcxr" path="res://components/random_position.tscn" id="5_hx10i"]
 [ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="6_grmhl"]
-[ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="7_cjpex"]
+[ext_resource type="AudioStream" uid="uid://bvepan4u4ehv7" path="res://assets/licensed_assets/Blob.mp3" id="8_7q821"]
 [ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="8_oqkme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
@@ -35,13 +36,20 @@ region_rect = Rect2(0, 0, 16, 16)
 speed = 100.0
 accel = 50.0
 
-[node name="PathToPlayer" type="Node2D" parent="Movement"]
-script = ExtResource("4_mhjqn")
+[node name="PathToTarget" parent="Movement" instance=ExtResource("4_a8rnd")]
+
+[node name="RandomPosition" parent="Movement/PathToTarget" instance=ExtResource("5_hx10i")]
+min_distance = -1
+max_distance = 1
+wait_time = 1.0
 
 [node name="Health" parent="." instance=ExtResource("5_g8kh8")]
 health = 100
 
 [node name="Damage" parent="." instance=ExtResource("6_grmhl")]
-damage_sound_fx = ExtResource("7_cjpex")
+damage_sound_fx = ExtResource("8_7q821")
+min_sound_pitch = 0.9
+max_sound_pitch = 1.1
 
 [node name="Death" parent="." instance=ExtResource("8_oqkme")]
+exp_on_death = 1

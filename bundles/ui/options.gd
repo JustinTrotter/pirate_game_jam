@@ -35,11 +35,9 @@ func on_changed_level():
 	%VolumeSlider.value = sound_manager.get_music_volume() * 100
 	%VolumeValue.text = str(%VolumeSlider.value)
 
-
 func _on_options_pressed():
 	visible = !visible
 
-
-func _on_sound_volume_slider_changed():
+func _on_sound_volume_slider_value_changed(value):
 	sound_manager.set_sound_volume(%SoundVolumeSlider.value / 100)
 	%SoundVolumeValue.text = str(%SoundVolumeSlider.value)

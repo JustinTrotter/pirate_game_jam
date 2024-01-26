@@ -20,7 +20,6 @@ func do_spawn():
 	new_spawn.position = Vector2(new_spawn.position.x + 5, new_spawn.position.y + 5)
 	add_child(new_spawn)
 	new_spawn.reparent(game_screen)
-	remove_child(new_spawn)
 	#print("spawn_spawner: ", spawn_spawner)
 	var path = new_spawn.find_child("Movement").find_child("PathToPlayer")
 

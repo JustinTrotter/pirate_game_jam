@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var player_progression = get_tree().get_nodes_in_group("Player")[0].find_child("Progression")
+
 @onready var parent = get_parent();
 @onready var health_component;
 
@@ -12,6 +14,7 @@ func _ready():
 func _process(delta):
 	if is_dead():
 		Globals.total_spawned_enemies -= 1
+		player_progression.increase_exp(1.0)
 		parent.queue_free()
 
 func is_dead() -> bool:

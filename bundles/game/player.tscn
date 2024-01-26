@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6ob8ceo45ram"]
+[gd_scene load_steps=15 format=3 uid="uid://6ob8ceo45ram"]
 
 [ext_resource type="Script" path="res://bundles/game/player.gd" id="1_v3y6g"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_raixs"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dpjq44tp3wxv6" path="res://components/armor.tscn" id="10_58ugq"]
 [ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="11_nh1ei"]
 [ext_resource type="PackedScene" uid="uid://173myrf0fpy1" path="res://components/attack.tscn" id="12_d4ny2"]
+[ext_resource type="PackedScene" uid="uid://d1pnk7rasllph" path="res://components/progression.tscn" id="13_4atkh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -59,3 +60,5 @@ health = 100
 [node name="Damage" parent="." instance=ExtResource("9_aoh5k")]
 
 [node name="Attack" parent="." instance=ExtResource("12_d4ny2")]
+
+[node name="Progression" parent="." instance=ExtResource("13_4atkh")]

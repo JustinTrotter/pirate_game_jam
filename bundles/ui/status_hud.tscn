@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqmhruc7vmr8f"]
+
+[ext_resource type="Script" path="res://bundles/ui/status_hud.gd" id="1_ebhrv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygndx"]
+bg_color = Color(0, 0.721569, 0.282353, 1)
+
+[node name="StatusHUD" type="CanvasLayer"]
+script = ExtResource("1_ebhrv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ygndx")

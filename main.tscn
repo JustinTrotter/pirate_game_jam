@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://07jopxvkstce"]
+[gd_scene load_steps=15 format=3 uid="uid://07jopxvkstce"]
 
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ruf5u"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://ui_manager.gd" id="9_cesgc"]
 [ext_resource type="PackedScene" uid="uid://dle8k4n7ue3i4" path="res://bundles/ui/options.tscn" id="11_p1b78"]
 [ext_resource type="PackedScene" uid="uid://dqmhruc7vmr8f" path="res://bundles/ui/status_hud.tscn" id="13_yte2u"]
+[ext_resource type="Texture2D" uid="uid://chlw4s5s7wicb" path="res://assets/licensed_assets/Hopeless.png" id="14_tig67"]
 
 [node name="Main" type="Node2D" groups=["Main"]]
 script = ExtResource("1_ruf5u")
@@ -79,3 +80,79 @@ visible = false
 
 [node name="Debug" parent="." instance=ExtResource("3_gg2uk")]
 unique_name_in_owner = true
+
+[node name="Title Screen" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Title Screen"]
+handle_input_locally = false
+size = Vector2i(960, 608)
+render_target_update_mode = 4
+
+[node name="Title Card" type="TextureRect" parent="Title Screen/SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_tig67")
+
+[node name="Panel" type="Panel" parent="Title Screen/SubViewport/Title Card"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -54.0
+offset_right = 150.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Title Screen/SubViewport/Title Card/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title Screen/SubViewport/Title Card/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Title Screen/SubViewport/Title Card/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play
+"
+
+[node name="Button2" type="Button" parent="Title Screen/SubViewport/Title Card/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options
+"
+
+[node name="Button3" type="Button" parent="Title Screen/SubViewport/Title Card/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Title Screen/SubViewport"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Title Screen/SubViewport/MarginContainer"]
+layout_mode = 2
+text = "A Game by Justin Trotter, Willow Grace, and PAX_"

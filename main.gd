@@ -13,3 +13,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func start_game():
+	%"Title Screen".visible = false
+	%"UI Screen".visible = true
+	%"Game Screen".visible = true
+	
+func _on_play_pressed():
+	start_game()

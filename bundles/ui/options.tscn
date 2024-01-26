@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dle8k4n7ue3i4"]
+[gd_scene load_steps=4 format=3 uid="uid://dle8k4n7ue3i4"]
 
 [ext_resource type="Script" path="res://bundles/ui/options.gd" id="1_l4fjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc1py"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
 
 [sub_resource type="Texture2DRD" id="Texture2DRD_p7d8m"]
 
@@ -8,6 +11,7 @@
 script = ExtResource("1_l4fjp")
 
 [node name="options_panel" type="Panel" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,6 +23,7 @@ offset_right = 300.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yc1py")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="options_panel"]
 layout_mode = 1
@@ -28,7 +33,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="options_panel/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="options_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="options_panel/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Options
@@ -46,7 +56,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Music Volume:"
+text = "Sound Volume:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -58,16 +68,53 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 
-[node name="VolumeSlider" type="HSlider" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer"]
+[node name="SoundVolumeSlider" type="HSlider" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_icons/tick = SubResource("Texture2DRD_p7d8m")
 tick_count = 20
 ticks_on_borders = true
 
-[node name="VolumeValue" type="Label" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="SoundVolumeValue" type="Label" parent="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[connection signal="value_changed" from="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[node name="MarginContainer2" type="MarginContainer" parent="options_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options_panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="options_panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options_panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="options_panel/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+
+[node name="VolumeSlider" type="HSlider" parent="options_panel/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_icons/tick = SubResource("Texture2DRD_p7d8m")
+tick_count = 20
+ticks_on_borders = true
+
+[node name="VolumeValue" type="Label" parent="options_panel/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[connection signal="changed" from="options_panel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer/SoundVolumeSlider" to="." method="_on_sound_volume_slider_changed"]
+[connection signal="value_changed" from="options_panel/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

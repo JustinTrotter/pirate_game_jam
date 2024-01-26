@@ -1,18 +1,27 @@
 extends Node2D
-@export var music_1: AudioStream
-@export var music_2: AudioStream
+
+@export var title_music: AudioStream
+@export var game_music: AudioStream
+@export var dead_music: AudioStream
+
+@onready var transition_audio: AudioStream
+@onready var pre_transition_volume: float
+@onready var transition_volume: float
+@onready var is_fading: bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%SoundManager.set_default_sound_bus("Sound")
 	%SoundManager.set_default_music_bus("Music")
-	%SoundManager.play_music(music_1)
+	%SoundManager.play_music(title_music)
 	%SoundManager.set_music_volume(0.05)
 	%SoundManager.set_sound_volume(0.05)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if is_fading:
+		%SoundManager.set_music_volume(transition_volume)
 	
 func start_game():
 	%"Title Screen".visible = false
@@ -21,3 +30,25 @@ func start_game():
 	
 func _on_play_pressed():
 	start_game()
+	transition_music(game_music)
+
+func transition_music(newSong: AudioStream):
+	transition_audio = newSong
+	fade_music_out()
+	
+func fade_music_out():
+	pre_transition_volume = %SoundManager.get_music_volume()
+	transition_volume = %SoundManager.get_music_volume()
+	is_fading = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "transition_volume", 0, 1)
+	tween.tween_callback(fade_music_in)
+	
+func fade_music_in():
+	%SoundManager.play_music(transition_audio)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "transition_volume", pre_transition_volume, 1)
+	tween.tween_callback(finish_fading)
+
+func finish_fading():
+	pass

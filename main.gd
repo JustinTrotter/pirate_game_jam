@@ -5,6 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%SoundManager.set_default_sound_bus("Sound")
 	%SoundManager.set_default_music_bus("Music")
 	%SoundManager.play_music(music_1)
 	%SoundManager.set_music_volume(0.05)

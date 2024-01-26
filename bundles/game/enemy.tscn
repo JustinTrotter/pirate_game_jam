@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm11n5kxirrr4"]
+[gd_scene load_steps=14 format=3 uid="uid://bm11n5kxirrr4"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy.gd" id="1_2gxu0"]
 [ext_resource type="Texture2D" uid="uid://b815k75dx8y7s" path="res://assets/concepts/mob1.png" id="2_mk04t"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="7_ou5g2"]
 [ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="8_xa8pk"]
 [ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="9_b50i7"]
+[ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="10_mfpe7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -73,3 +74,6 @@ health = 100
 [node name="Death" parent="." instance=ExtResource("8_xa8pk")]
 
 [node name="Damage" parent="." instance=ExtResource("9_b50i7")]
+damage_sound_fx = ExtResource("10_mfpe7")
+min_sound_pitch = 0.75
+max_sound_pitch = 1.25

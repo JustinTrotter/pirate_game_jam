@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dasq0hrebpi7s"]
+[gd_scene load_steps=10 format=3 uid="uid://dasq0hrebpi7s"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy_2.gd" id="1_oar22"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_u02pu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_yu3ro"]
 [ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="5_faacs"]
 [ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="6_vtrfa"]
+[ext_resource type="AudioStream" uid="uid://dpqwkf37sxu1" path="res://assets/licensed_assets/Mob_sound_1.mp3" id="7_05v51"]
 [ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="7_s0nbb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
@@ -41,5 +42,6 @@ script = ExtResource("4_yu3ro")
 health = 100
 
 [node name="Damage" parent="." instance=ExtResource("6_vtrfa")]
+damage_sound_fx = ExtResource("7_05v51")
 
 [node name="Death" parent="." instance=ExtResource("7_s0nbb")]

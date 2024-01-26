@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="1_4xc0u"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_x7eym"]
-[ext_resource type="Texture2D" uid="uid://bc58me2x07lqh" path="res://icon.svg" id="2_4kqo6"]
+[ext_resource type="Texture2D" uid="uid://cvi6c85v70viy" path="res://assets/licensed_assets/cello.png" id="2_3gns6"]
 [ext_resource type="Script" path="res://bundles/ui/bar.gd" id="2_ahlq3"]
 [ext_resource type="PackedScene" uid="uid://cgwsfuehl14qf" path="res://bundles/ui/mini_map.tscn" id="4_djg2i"]
 [ext_resource type="PackedScene" uid="uid://bu7rat15ve6qp" path="res://bundles/ui/chord.tscn" id="5_ff5ph"]
@@ -119,7 +119,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="WeaponButton" type="TextureButton" parent="HBoxContainer/BarHud/MarginContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_4kqo6")
+texture_normal = ExtResource("2_3gns6")
 ignore_texture_size = true
 stretch_mode = 4
 

@@ -17,7 +17,7 @@ func _process(delta):
 	check_mouse_in_chord()
 	
 	if Input.is_action_just_released("Click"):
-		if mouse_in_chord:
+		if mouse_in_chord && Globals.held_index != null:
 			texture = Globals.held_item
 			bullet_scene = AssetCache.bullet_scenes[Globals.held_index]
 

@@ -9,7 +9,7 @@ extends CanvasLayer
 
 @onready var inventory_grid = %InventoryGrid
 
-@onready var weapon_tileset = "res://icon.svg"
+@onready var weapon_tileset = "res://assets/licensed_assets/blank.png"
 @onready var weapon_graphic_frame = 0
 
 @onready var mouse_in_inventory = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm11n5kxirrr4"]
+[gd_scene load_steps=13 format=3 uid="uid://bm11n5kxirrr4"]
 
 [ext_resource type="Script" path="res://bundles/game/enemy.gd" id="1_2gxu0"]
 [ext_resource type="Texture2D" uid="uid://b815k75dx8y7s" path="res://assets/concepts/mob1.png" id="2_mk04t"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://43tg147ff4he" path="res://components/movement.tscn" id="3_ctxki"]
 [ext_resource type="Script" path="res://bundles/game/animation.gd" id="4_2ruh5"]
 [ext_resource type="Script" path="res://bundles/game/path_to_player.gd" id="4_eykap"]
+[ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="7_ou5g2"]
+[ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="8_xa8pk"]
+[ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="9_b50i7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -32,9 +35,9 @@ _data = {
 "idle": SubResource("Animation_pk3ic")
 }
 
-[node name="Enemy" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 4
-collision_mask = 5
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 12
+collision_mask = 13
 script = ExtResource("1_2gxu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,3 +66,10 @@ accel = 50.0
 script = ExtResource("4_eykap")
 
 [node name="Flying" type="Node2D" parent="."]
+
+[node name="Health" parent="." instance=ExtResource("7_ou5g2")]
+health = 100
+
+[node name="Death" parent="." instance=ExtResource("8_xa8pk")]
+
+[node name="Damage" parent="." instance=ExtResource("9_b50i7")]

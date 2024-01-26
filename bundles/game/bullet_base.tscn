@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqfn0o2vvcmvh"]
+[gd_scene load_steps=6 format=3 uid="uid://bqfn0o2vvcmvh"]
 
 [ext_resource type="Script" path="res://bundles/game/bullet.gd" id="1_c1dwt"]
+[ext_resource type="PackedScene" uid="uid://173myrf0fpy1" path="res://components/attack.tscn" id="2_atq4o"]
+[ext_resource type="PackedScene" uid="uid://daxxwxv3lvlwg" path="res://components/damage_other_on_hit.tscn" id="4_kjnim"]
+[ext_resource type="PackedScene" uid="uid://ckbsniov5tkvw" path="res://components/die_on_hit.tscn" id="4_wot04"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7f06j"]
 
 [node name="bullet_base" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_c1dwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7f06j")
+
+[node name="Attack" parent="." instance=ExtResource("2_atq4o")]
+
+[node name="DieOnHit" parent="." instance=ExtResource("4_wot04")]
+
+[node name="DamageOnHit" parent="." instance=ExtResource("4_kjnim")]
+
+[connection signal="body_shape_entered" from="." to="DieOnHit" method="_on_bullet_base_body_shape_entered"]
+[connection signal="body_shape_entered" from="." to="DamageOnHit" method="_on_bullet_base_body_shape_entered"]

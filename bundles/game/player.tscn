@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6ob8ceo45ram"]
+[gd_scene load_steps=14 format=3 uid="uid://6ob8ceo45ram"]
 
 [ext_resource type="Script" path="res://bundles/game/player.gd" id="1_v3y6g"]
 [ext_resource type="Texture2D" uid="uid://dlmrhhh0dpsbl" path="res://assets/resources/Tilemap/tilemap_packed.png" id="2_raixs"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://1k6kg5fn1k81" path="res://components/shooting.tscn" id="4_tub0f"]
 [ext_resource type="Script" path="res://bundles/game/camera_target.gd" id="5_bkyss"]
 [ext_resource type="PackedScene" uid="uid://bou4uhj4m3kue" path="res://components/toward_enemy.tscn" id="7_kio26"]
+[ext_resource type="PackedScene" uid="uid://brjh0o1moxe8q" path="res://components/health.tscn" id="8_0ntr5"]
+[ext_resource type="PackedScene" uid="uid://dg643w7sjds37" path="res://components/damage.tscn" id="9_aoh5k"]
+[ext_resource type="PackedScene" uid="uid://dpjq44tp3wxv6" path="res://components/armor.tscn" id="10_58ugq"]
+[ext_resource type="PackedScene" uid="uid://btcwcx7sf65v0" path="res://components/death.tscn" id="11_nh1ei"]
+[ext_resource type="PackedScene" uid="uid://173myrf0fpy1" path="res://components/attack.tscn" id="12_d4ny2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5rpu"]
 radius = 8.0
@@ -21,7 +26,7 @@ position = Vector2(0, 0.5)
 scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_c5rpu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Graphic" type="Sprite2D" parent="."]
 z_index = 100
 texture_filter = 1
 texture = ExtResource("2_raixs")
@@ -43,3 +48,14 @@ magnitude = 100.0
 [node name="Shooting" parent="." instance=ExtResource("4_tub0f")]
 
 [node name="TowardEnemy" parent="Shooting" instance=ExtResource("7_kio26")]
+
+[node name="Health" parent="." instance=ExtResource("8_0ntr5")]
+health = 100
+
+[node name="Armor" parent="." instance=ExtResource("10_58ugq")]
+
+[node name="Death" parent="." instance=ExtResource("11_nh1ei")]
+
+[node name="Damage" parent="." instance=ExtResource("9_aoh5k")]
+
+[node name="Attack" parent="." instance=ExtResource("12_d4ny2")]

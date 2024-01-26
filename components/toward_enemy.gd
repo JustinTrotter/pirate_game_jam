@@ -15,6 +15,7 @@ func _physics_process(delta):
 		parent.direction = (closest_enemy.global_position - parent.global_position).normalized()
 
 func get_closest_enemy() -> Node2D:
+	enemies = get_tree().get_nodes_in_group("Enemy")
 	if enemies.size() == 0: return
 	var closest_enemy = enemies[0]
 	var closest_distance = parent.global_position.distance_to(enemies[0].global_position)

@@ -41,7 +41,6 @@ render_target_update_mode = 4
 position = Vector2(240, 152)
 scale = Vector2(2, 2)
 zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 script = ExtResource("2_gp5xq")
 
 [node name="Map" parent="Game Screen/SubViewport" groups=["Map"] instance=ExtResource("1_idevj")]

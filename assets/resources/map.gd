@@ -15,6 +15,17 @@ extends Node2D
 
 @onready var level_lookup_map = []
 
+@onready var level_names = [
+	"Level_1",
+	"Level_2",
+	"Level_3",
+	"Level_4",
+	"Level_5",
+	"Level_6",
+	"Level_7",
+	"Level_8",
+]
+
 func _ready():
 	initialize_level_nodes()
 	cache_wall_level_nodes()
@@ -61,13 +72,16 @@ func reset_level_container():
 	level_container_node.queue_free()
 	create_level_container()
 	
+func get_random_level() -> String:
+	return level_names[randi_range(0, level_names.size() - 1)]
+	
 func create_level_floors():
 	var count = 0
 	for level in level_cells:
 		if level:
 			if count != 35: #for now don't do start level
 				var level_coords = get_level_coords_from_cell(count)
-				create_level_at_location("Level_1", level_coords.x, level_coords.y, count)
+				create_level_at_location(get_random_level(), level_coords.x, level_coords.y, count)
 		count += 1	
 
 func create_level_walls():

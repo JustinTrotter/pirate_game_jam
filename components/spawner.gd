@@ -29,6 +29,6 @@ func do_spawn():
 
 
 func _on_timer_timeout():
-	if Globals.total_spawned_enemies < 25:
+	if Globals.total_spawned_enemies < 15:
 		do_spawn()
 		Globals.total_spawned_enemies += 1

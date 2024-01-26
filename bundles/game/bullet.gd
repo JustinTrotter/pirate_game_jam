@@ -4,6 +4,7 @@ extends Area2D
 @onready var scaling = false
 @onready var shoot_direction
 
+
 func start(pos):
 	shoot_direction = Vector2.UP
 

@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var enemies = get_tree().get_nodes_in_group("Enemy")
+@export var target_name: String
+@onready var enemies = get_tree().get_nodes_in_group("target_name")
 
 @onready var parent = get_parent()
 
@@ -15,7 +16,7 @@ func _physics_process(delta):
 		parent.direction = (closest_enemy.global_position - parent.global_position).normalized()
 
 func get_closest_enemy() -> Node2D:
-	enemies = get_tree().get_nodes_in_group("Enemy")
+	enemies = get_tree().get_nodes_in_group(target_name)
 	if enemies.size() == 0: return
 	var closest_enemy = enemies[0]
 	var closest_distance = parent.global_position.distance_to(enemies[0].global_position)

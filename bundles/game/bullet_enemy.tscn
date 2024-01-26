@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://qhtu1t8753hw"]
+
+[ext_resource type="PackedScene" uid="uid://bqfn0o2vvcmvh" path="res://bundles/game/bullet_base.tscn" id="1_tyt54"]
+[ext_resource type="Texture2D" uid="uid://c71p0nu1lmapg" path="res://assets/resources/UIpackSheet_transparent.png" id="2_7u5w4"]
+
+[node name="bullet_base" instance=ExtResource("1_tyt54")]
+collision_layer = 33
+collision_mask = 33
+
+[node name="graphic" type="Sprite2D" parent="." index="0"]
+z_index = 90
+texture_filter = 1
+texture = ExtResource("2_7u5w4")
+hframes = 30
+vframes = 33
+frame = 799

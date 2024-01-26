@@ -49,6 +49,7 @@ magnitude = 100.0
 [node name="Shooting" parent="." instance=ExtResource("4_tub0f")]
 
 [node name="TowardEnemy" parent="Shooting" instance=ExtResource("7_kio26")]
+target_name = "Enemy"
 
 [node name="Health" parent="." instance=ExtResource("8_0ntr5")]
 health = 100

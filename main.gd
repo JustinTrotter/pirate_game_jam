@@ -9,7 +9,6 @@ extends Node2D
 @onready var transition_volume: float
 @onready var is_fading: bool
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%SoundManager.set_default_sound_bus("Sound")
@@ -52,21 +51,18 @@ func fade_music_in():
 	tween.tween_property(self, "transition_volume", pre_transition_volume, 1)
 	tween.tween_callback(finish_fading)
 
-
 func finish_fading():
 	is_fading = false
 	
 func fade_out_curtain():
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Curtain, "modulate", Color(0,0,0,0), 1)
-	#%Curtain.visible = false
 	
 func fade_in_out_curtain_callback():
 	fade_out_curtain()
 	start_game()
 	
 func fade_in_out_curtain():
-	#%Curtain.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Curtain, "modulate", Color(0,0,0,1), 1)
 	tween.tween_callback(fade_in_out_curtain_callback)

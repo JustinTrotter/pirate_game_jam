@@ -1,7 +1,6 @@
 extends Node
 
-var bullet_a: PackedScene = preload("res://bundles/game/bullet_A.tscn")
-var bullet_b: PackedScene = preload("res://bundles/game/bullet_B.tscn")
+@export var local_bullet: PackedScene
 
 @onready var map = get_tree().get_nodes_in_group("Map")[0] 
 
@@ -20,8 +19,11 @@ func _process(delta):
 		default_behavior()
 
 func shoot(bullet: PackedScene) -> void:
+	var shooty_bullet = bullet
+	if local_bullet:
+		shooty_bullet = local_bullet
 	#if Input.is_action_just_pressed("shoot"):\
-	var bullet_instance = bullet.instantiate()
+	var bullet_instance = shooty_bullet.instantiate()
 	bullet_instance.global_position = parent.global_position
 
 	bullet_instance.shoot_direction = direction

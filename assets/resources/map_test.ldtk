@@ -434,6 +434,22 @@
 							"defUid": 36,
 							"px": [384,176],
 							"fieldInstances": []
+						},
+						{
+							"__identifier": "Enemy_2",
+							"__grid": [19,4],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": { "tilesetUid": 2, "x": 32, "y": 160, "w": 16, "h": 16 },
+							"__smartColor": "#EAD4AA",
+							"__worldX": -176,
+							"__worldY": 64,
+							"iid": "5fd21a10-b0a0-11ee-9157-d54abfd32bde",
+							"width": 16,
+							"height": 16,
+							"defUid": 37,
+							"px": [304,64],
+							"fieldInstances": []
 						}
 					]
 				},

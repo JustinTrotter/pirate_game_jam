@@ -17,6 +17,8 @@ func _ready():
 	%SoundManager.play_music(title_music)
 	%SoundManager.set_music_volume(0.05)
 	%SoundManager.set_sound_volume(0.05)
+	%Curtain.visible = true
+	fade_out_curtain()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,8 +31,8 @@ func start_game():
 	%"Game Screen".visible = true
 	
 func _on_play_pressed():
-	start_game()
 	transition_music(game_music)
+	fade_in_out_curtain()
 
 func transition_music(newSong: AudioStream):
 	transition_audio = newSong
@@ -52,3 +54,18 @@ func fade_music_in():
 
 func finish_fading():
 	pass
+	
+func fade_out_curtain():
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Curtain, "modulate", Color(0,0,0,0), 1)
+	#%Curtain.visible = false
+	
+func fade_in_out_curtain_callback():
+	fade_out_curtain()
+	start_game()
+	
+func fade_in_out_curtain():
+	#%Curtain.visible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Curtain, "modulate", Color(0,0,0,1), 1)
+	tween.tween_callback(fade_in_out_curtain_callback)

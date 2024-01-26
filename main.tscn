@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://07jopxvkstce"]
+[gd_scene load_steps=17 format=3 uid="uid://07jopxvkstce"]
 
 [ext_resource type="PackedScene" uid="uid://sl72mtl3lhyy" path="res://assets/resources/map_test.ldtk" id="1_idevj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ruf5u"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://dle8k4n7ue3i4" path="res://bundles/ui/options.tscn" id="11_p1b78"]
 [ext_resource type="PackedScene" uid="uid://dqmhruc7vmr8f" path="res://bundles/ui/status_hud.tscn" id="13_yte2u"]
 [ext_resource type="Texture2D" uid="uid://chlw4s5s7wicb" path="res://assets/licensed_assets/Hopeless.png" id="14_tig67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1tx"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" groups=["Main"]]
 script = ExtResource("1_ruf5u")
@@ -161,6 +164,21 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="Title Screen/SubViewport/MarginContainer"]
 layout_mode = 2
 text = "A Game by Justin Trotter, Willow Grace, and PAX_"
+
+[node name="Curtain" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5000.0
+offset_top = -5000.0
+offset_right = 5000.0
+offset_bottom = 5000.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yj1tx")
 
 [connection signal="pressed" from="Title Screen/SubViewport/Title Card/Panel/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Title Screen/SubViewport/Title Card/Panel/MarginContainer/VBoxContainer/Options" to="Options" method="_on_options_pressed"]
